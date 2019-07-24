@@ -1,0 +1,43 @@
+<h4>Create projects:</h4>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <form [formGroup]="formProject" (submit)= "createProject()">
+        <div class="form-group">
+          <label for="name_project">Name project</label>
+          <input type="text" class="form-control" id="name_project" placeholder="Name project" formControlName="name_project" >
+          <span style="color: red;" *ngIf="formProject.get('name_project').invalid && formProject.get('name_project').touched"><br>
+            <span *ngIf="formProject.get('name_project')['errors']['required']">Please enter name project</span>
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="description">Username</label>
+          <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
+          <span style="color: red;" *ngIf="formProject.get('description').invalid && formProject.get('description').touched"><br>
+            <span *ngIf="formProject.get('description')['errors']['required']">Please enter description project</span>
+          </span>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="user_id" placeholder="user id" formControlName="user_id">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+<h4>List projects:</h4>
+<div class="container">
+  <div class="row">
+    <div class="col-4" *ngFor="let project of projects; let index = index" >
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{project.name_project}}</h5>
+          <p class="card-text">{{project.description}}</p>
+          <button class="btn btn-primary" (click)="delete(project.id)">delete</button>
+          <button class="btn btn-danger" (click)="delete(project.id)">delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
