@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ProjectService} from '../../shared/services/project.service';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {EditFormModalComponent} from '../../shared/modal/edit-form-modal/edit-form-modal.component';
+import {DeleteFormModalComponent} from '../../shared/modal/delete-form-modal/delete-form-modal.component';
+import {CreateFormModalComponent} from '../../shared/modal/create-form-modal/create-form-modal.component';
 
 
 @Component({
@@ -11,47 +14,45 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class ProjectComponent implements OnInit {
 
   projects: any;
-  formProject: FormGroup;
 
-  constructor( private project: ProjectService) { }
+  constructor( private project: ProjectService, private modalService: NgbModal) { }
 
   ngOnInit() {
-    this.formProject = new FormGroup({
-      'name_project': new FormControl(null, [Validators.required]),
-      'description': new FormControl(null, [Validators.required]),
-      'user_id': new FormControl()
-    });
     this.project.getProjects().subscribe((data: any) => this.projects = data);
   }
 
-  delete(id) {
-    this.project.deleteProject(id).subscribe((data: any) => {
-      this.projects = data;
+  create() {
+    const modalRef = this.modalService.open(CreateFormModalComponent);
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
     });
   }
 
-  createProject() {
-    const formData = this.formProject.value;
-     this.project.create(formData).subscribe(res => {
-         console.log('successfully create user');
-       },
-       err => {
-         console.log(err);
-       }
-     );
-    console.log(formData);
+  edit(project) {
+    const modalRef = this.modalService.open(EditFormModalComponent);
+    modalRef.componentInstance.id = project.id;
+    modalRef.componentInstance.name_project = project.name_project;
+    modalRef.componentInstance.description = project.description;
+    modalRef.result.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
-  update(id) {
-    const formData = this.formProject.value;
-    this.project.update(formData, id).subscribe(res => {
-        console.log('successfully update user');
-      },
-      err => {
-        console.log(err);
-      }
-    );
-    console.log('update project');
+  delete(project) {
+    const modalRef = this.modalService.open(DeleteFormModalComponent);
+    modalRef.componentInstance.name_project = project.name_project;
+    modalRef.result.then((result) => {
+      this.project.deleteProject(project.id).subscribe((data: any) => {
+        this.projects = data;
+      });
+      console.log(`delete project - ${result} , - id = ${project.id}`);
+    }).catch((error) => {
+      console.log(`error delete project - ${error}`);
+    });
   }
 
 }

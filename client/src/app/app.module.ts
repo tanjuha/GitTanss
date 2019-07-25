@@ -14,12 +14,13 @@ import {HomeModule} from './home/home.module';
 import {HomeRoutingModule} from './home/home-routing.module';
 import {HomeGuard} from './home/home-guard';
 import {ProjectService} from './shared/services/project.service';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,10 +30,16 @@ import {ProjectService} from './shared/services/project.service';
     AuthModule,
     AppRoutingModule,
     HomeModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    NgbModule.forRoot()
   ],
-  providers: [UserService, AuthService, ProjectService, AuthGuard, HomeGuard
+  providers: [
+    UserService,
+    AuthService,
+    ProjectService,
+    AuthGuard,
+    HomeGuard
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
