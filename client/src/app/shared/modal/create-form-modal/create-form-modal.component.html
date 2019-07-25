@@ -1,0 +1,35 @@
+<div class="modal-header">
+  <h4 class="modal-title">Create Project</h4>
+</div>
+<form [formGroup]="createForm" (ngSubmit)= "submitForm()">
+  <div class="modal-boy">
+    <div class="container">
+      <div class="form-group">
+        <label for="name_project">Name project</label>
+        <input id="name_project" type="text"
+               class="form-control"
+               formControlName="name_project" />
+      </div>
+      <span style="color: red;" *ngIf="createForm.get('name_project').invalid && createForm.get('name_project').touched"><br>
+            <span *ngIf="createForm.get('name_project')['errors']['required']">Please enter name project</span>
+          </span>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" rows="3" formControlName="description"></textarea>
+        <span style="color: red;" *ngIf="createForm.get('description').invalid && createForm.get('description').touched"><br>
+            <span *ngIf="createForm.get('description')['errors']['required']">Please enter description project</span>
+          </span>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="user_id" placeholder="user id" formControlName="user_id">
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary" (click)="activeModal.dismiss()">Cancel</button>
+    <button class="btn btn-success"
+            [disabled]="!createForm.valid">
+      Submit Form
+    </button>
+  </div>
+</form>
