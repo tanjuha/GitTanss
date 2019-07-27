@@ -28,11 +28,10 @@ export class LoginComponent implements OnInit {
         console.log(res);
         localStorage.setItem('token', res.token);
         this.router.navigate([`/projects`]);
+        console.log('this is value - ' + formData.username);
       },
       error =>  console.log(error)
     );
-    console.log(formData);
-
 }
 
 }

@@ -4,13 +4,16 @@ import { EditFormModalComponent } from './modal/edit-form-modal/edit-form-modal.
 import { DeleteFormModalComponent } from './modal/delete-form-modal/delete-form-modal.component';
 import {CommonModule} from '@angular/common';
 import { CreateFormModalComponent } from './modal/create-form-modal/create-form-modal.component';
+import { AddUsersFormModalComponent } from './modal/add-users-form-modal/add-users-form-modal.component';
+import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 
 
 @NgModule({
   imports: [
     ReactiveFormsModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   exports: [
     ReactiveFormsModule,
@@ -19,12 +22,14 @@ import { CreateFormModalComponent } from './modal/create-form-modal/create-form-
   declarations: [
     EditFormModalComponent,
     DeleteFormModalComponent,
-    CreateFormModalComponent
+    CreateFormModalComponent,
+    AddUsersFormModalComponent
   ],
   entryComponents: [
     EditFormModalComponent,
     DeleteFormModalComponent,
-    CreateFormModalComponent
+    CreateFormModalComponent,
+    AddUsersFormModalComponent
   ]
 })
 export class SharedModule {}

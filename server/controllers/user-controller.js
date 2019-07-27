@@ -9,9 +9,7 @@ module.exports.getUsers = function (req, res) {
     let query = "SELECT * FROM users";
     db.query(query).spread(function (result, metadata) {
         if(result.length > 0){
-            res.json({
-                userList: result
-            });
+            res.json(result);
         }else{
             res.status(400).send(" 400 error get users");
         }
