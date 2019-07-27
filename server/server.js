@@ -21,34 +21,10 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-
-//controllers
-const userController = require('./controllers/user-controller');
-
-//routes
-
-app.get('/users', userController.getUsers);
-
-app.get('/projects', userController.getProjects);
-
-app.get('/owner', userController.getOwner);
-
-app.get('/user/:id', userController.getUserById);
-
- app.post('/auth/registration', userController.registration);
-
- app.post('/project', userController.createProject);
-
- app.put('/project/edit/:id', userController.editProject);
-
-app.post('/auth/login', userController.loginUser);
-
-app.delete('/projects/:id', userController.deleteProject);
-
-app.delete('/user/delete/:id', userController.deleteUser);
+require('./routes/routes')(app);
 
 db.sync().then(function () {
-    app.listen(3000, function () {
-        console.log('it is work!');
-    })
+    let server =  app.listen(3000);
+    let port = server.address().port;
+    console.log(`App listening at http://localhost:${port}`);
 });

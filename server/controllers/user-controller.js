@@ -1,4 +1,3 @@
-
 const db = require('../database/database');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -19,21 +18,6 @@ module.exports.getUsers = function (req, res) {
 
 };
 
-
-//get project
-module.exports.getProjects = function (req, res) {
-    let query = "SELECT * FROM projects";
-    db.query(query).spread(function (result, metadata) {
-        if(result.length > 0){
-            res.json(result);
-        }else{
-            res.status(400).send(" 400 error get users");
-        }
-    }).catch(function (err) {
-        res.status(500).send(" 500 error get users");
-    })
-
-};
 
 // get projects user
 module.exports.getOwner = function (req, res) {
@@ -64,15 +48,7 @@ module.exports.getUserById = function (req, res) {
     })
 };
 
-// delete project
-module.exports.deleteProject = function (req, res) {
-    let query = `DELETE FROM projects WHERE id = ${req.params.id};`;
-    db.query(query).spread(function (result, metadata) {
-        res.status(200).send("successfully project delete");
-    }).catch(function (err) {
-        res.status(500).send(" 505 error delete project");
-    })
-};
+
 // delete user
 module.exports.deleteUser = function (req, res) {
     let query = `DELETE FROM users WHERE id =${req.params.id};`;
@@ -106,7 +82,7 @@ module.exports.loginUser = (req, res) => {
 };
 
 // registration
-module.exports.registration = function (req, res) {
+module.exports.registrationUser = function (req, res) {
     let query = `INSERT INTO public.users (email, username, password) VALUES ( '${req.body.email}', '${req.body.username}', '${req.body.password}' )`;
     db.query(query).spread(function (result, metadata) {
         res.status(200).send('successfully registration');
@@ -115,22 +91,3 @@ module.exports.registration = function (req, res) {
     })
 };
 
-// create project
-module.exports.createProject = function (req, res) {
-    let query = `INSERT INTO public.projects (name_project, description, user_id) VALUES ( '${req.body.name_project}', '${req.body.description}', '${req.body.user_id}' )`;
-    db.query(query).spread(function (result, metadata) {
-        res.status(200).send('successfully create project');
-    }).catch(function (err) {
-        res.status(500).send(err);
-    })
-};
-
-// edit project
-module.exports.editProject = function (req, res) {
-    let query = `UPDATE public.projects SET name_project = '${req.body.name_project}', description = '${req.body.description}' WHERE id = ${req.params.id}`;
-    db.query(query).spread(function (result, metadata) {
-        res.status(200).send('successfully update project');
-    }).catch(function (err) {
-        res.status(500).send(err);
-    })
-};
