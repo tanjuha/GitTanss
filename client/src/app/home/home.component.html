@@ -4,4 +4,10 @@
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">logOut</button>
   </form>
 </nav>
+<div>
+  Current user from secure api end point:
+  <ul>
+    <li *ngIf="userFromApi">{{userFromApi.username}} - {{userFromApi.email}}</li>
+  </ul>
+</div>
 <router-outlet></router-outlet>

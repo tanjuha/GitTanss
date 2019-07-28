@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AuthService} from '../../shared/services/auth.service';
+import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +11,14 @@ import {AuthService} from '../../shared/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  formLogin: FormGroup;
+  loading = false;
+  submitted = false;
+  returnUrl: string;
+  error = '';
+
   constructor(private router: Router, private auth: AuthService) { }
 
-  formLogin: FormGroup;
 
   ngOnInit() {
     this.formLogin = new FormGroup({
@@ -22,16 +28,20 @@ export class LoginComponent implements OnInit {
 
   }
   onSubmit() {
+    if (this.formLogin.invalid) {
+      return;
+    }
+    this.loading = true;
     const formData = this.formLogin.value;
-    this.auth.loginUser(formData).subscribe(
-      res => {
-        console.log(res);
-        localStorage.setItem('token', res.token);
+    this.auth.login(formData).pipe(first()).subscribe(
+      data => {
         this.router.navigate([`/projects`]);
-        console.log('this is value - ' + formData.username);
       },
-      error =>  console.log(error)
-    );
+      error => {
+        this.error = error;
+        this.loading = false;
+      });
 }
 
 }
+
