@@ -5,7 +5,7 @@ import {EditFormModalComponent} from '../../shared/modal/edit-form-modal/edit-fo
 import {DeleteFormModalComponent} from '../../shared/modal/delete-form-modal/delete-form-modal.component';
 import {CreateFormModalComponent} from '../../shared/modal/create-form-modal/create-form-modal.component';
 import {AddUsersFormModalComponent} from '../../shared/modal/add-users-form-modal/add-users-form-modal.component';
-import {Project} from '../../shared/models/project.model';
+
 
 
 @Component({

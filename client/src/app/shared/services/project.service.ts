@@ -21,8 +21,8 @@ export class ProjectService {
     return this.http.delete<Project[]>(`${this.deleteProjectUrl}/${id}`);
   }
 
-  create(project) {
-    return this.http.post<Project[]>(this.createProjectUrl, project);
+  create(name_project, description, user_id) {
+    return this.http.post<Project[]>(this.createProjectUrl, {name_project,  description, user_id});
   }
 
   update(project, id: Project) {

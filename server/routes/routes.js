@@ -12,6 +12,8 @@ app.get('/owner', userController.getOwner);
 
 app.get('/user/:id', userController.getUserById);
 
+app.get('/user/username/:username', userController.getUserByUsername);
+
 app.post('/auth/registration', userController.registrationUser);
 
 app.post('/project', projectController.createProject);

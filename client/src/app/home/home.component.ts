@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../shared/services/auth.service';
-import {JwtHelperService} from '@auth0/angular-jwt';
 import {User} from '../shared/models/user.model';
 
 @Component({
@@ -10,14 +9,14 @@ import {User} from '../shared/models/user.model';
 })
 export class HomeComponent implements OnInit {
 
-  userOwner: User;
+  currentUser: User;
 
   constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
     this.router.navigate(['/projects']);
-    this.userOwner = this.auth.decodeToken();
-    console.log('jwt token - ' + this.userOwner.username);
+    this.currentUser = this.auth.decodeToken();
+    console.log('jwt token - ' + this.currentUser.username);
   }
 
   onSubmit() {

@@ -48,6 +48,20 @@ module.exports.getUserById = function (req, res) {
     })
 };
 
+// get user by username
+module.exports.getUserByUsername =  function (req, res) {
+    let query = `select * from users where username = '${req.params.username}'`;
+    db.query(query).spread(function (result, metadata) {
+        if(result.length > 0){
+            res.json(result);
+        }else{
+            res.status(400).send(" 400 error get users by id");
+        }
+    }).catch(function (err) {
+        res.status(500).send(" error get owner by id");
+    })
+};
+
 
 // delete user
 module.exports.deleteUser = function (req, res) {
@@ -64,7 +78,7 @@ module.exports.loginUser = (req, res) => {
     let query = `select * from users where username ='${req.body.username}' AND password ='${req.body.password}'`;
     db.query(query).spread(function (result, metadata) {
         if(result.length > 0){
-            let payload = {subject: req.body.id};
+            let payload = {username: req.body.username};
             let token = jwt.sign(payload, 'mySecretKey');
             res.json({
                     user: result,
