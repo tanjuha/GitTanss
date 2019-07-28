@@ -15,7 +15,7 @@ import {Project} from '../../shared/models/project.model';
 })
 export class ProjectComponent implements OnInit {
 
-  projects: Project;
+  projects: any;
 
   constructor( private project: ProjectService, private modalService: NgbModal) { }
 
@@ -44,13 +44,14 @@ export class ProjectComponent implements OnInit {
     });
   }
 
-  delete(project) {
+  delete(project, index) {
     const modalRef = this.modalService.open(DeleteFormModalComponent);
     modalRef.componentInstance.name_project = project.name_project;
     modalRef.result.then((result) => {
       this.project.deleteProject(project.id).subscribe((data: any) => {
         this.projects = data;
       });
+      this.projects.splice(index, 1);
       console.log(`delete project - ${result} , - id = ${project.id}`);
     }).catch((error) => {
       console.log(`error delete project - ${error}`);
