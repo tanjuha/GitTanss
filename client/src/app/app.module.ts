@@ -15,6 +15,7 @@ import {HomeModule} from './home/home.module';
 import {HomeRoutingModule} from './home/home-routing.module';
 import {HomeGuard} from './home/home-guard';
 import {ProjectService} from './shared/services/project.service';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {ProjectService} from './shared/services/project.service';
     AppRoutingModule,
     HomeModule,
     HomeRoutingModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AngularFontAwesomeModule
   ],
   providers: [
     UserService,
