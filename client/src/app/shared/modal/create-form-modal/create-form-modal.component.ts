@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, Input, OnInit, Output} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ProjectService} from '../../services/project.service';
-import {UserService} from '../../services/user.service';
-import {User} from '../../models/user.model';
 import {AuthService} from '../../services/auth.service';
+
 
 @Component({
   selector: 'app-create-form-modal',
@@ -13,43 +12,38 @@ import {AuthService} from '../../services/auth.service';
 })
 export class CreateFormModalComponent implements OnInit {
 
-  createForm: FormGroup;
-  currentUser: User;
-  currentUserInfo: any;
+  @Input() myProject: any;
+  myCreateForm: FormGroup;
 
   constructor(
     public activeModal: NgbActiveModal,
     public project: ProjectService,
-    public userService: UserService,
-    public auth: AuthService) { }
+    public auth: AuthService,
+    private formBuilder: FormBuilder) {
+
+    this.createForms();
+  }
 
   ngOnInit() {
-    this.createForm = new FormGroup({
+    this.myCreateForm = new FormGroup({
       'name_project': new FormControl(null, [Validators.required]),
       'description': new FormControl(null, [Validators.required]),
     });
 
-    // get current user username from jwt
-    this.currentUser = this.auth.decodeToken();
-    console.log('jwt token - ' + this.currentUser.username);
+  }
 
-    // get current user id
-    this.userService.getUserByUsername(this.currentUser.username).subscribe(data => {
-      this.currentUserInfo = data.map(elem => elem.id);
+  get form() { return this.myCreateForm.controls; }
+
+  private createForms() {
+    this.myCreateForm = this.formBuilder.group({
+      name_project: '',
+      description: '',
     });
-
   }
 
-  get form() { return this.createForm.controls; }
-
-  submitForm() {
-    this.project.create(this.form.name_project.value, this.form.description.value,  this.currentUserInfo).subscribe(res => {
-        console.log('res ' + res);
-      },
-      err => {
-        console.log( 'err ' + err);
-      }
-    );
+  private submitForm() {
+    this.activeModal.close(this.myCreateForm.value);
   }
+
 
 }

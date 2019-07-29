@@ -5,10 +5,9 @@
   <p>Are you sure you want to add users in "{{name_project}}" project?</p>
 </div>
 
-
 <ng-multiselect-dropdown
   [placeholder]="'custom placeholder'"
-  [data]="dropdownList"
+  [data]="users"
   [(ngModel)]="selectedItems"
   [settings]="dropdownSettings"
   (onSelect)="onItemSelect($event)"

@@ -1,7 +1,7 @@
 <div class="modal-header">
   <h4 class="modal-title">Create Project</h4>
 </div>
-<form [formGroup]="createForm" (ngSubmit)= "submitForm()">
+<form [formGroup]="myCreateForm" (ngSubmit)= "submitForm()">
   <div class="modal-boy">
     <div class="container">
       <div class="form-group">
@@ -10,14 +10,14 @@
                class="form-control"
                formControlName="name_project" />
       </div>
-      <span style="color: red;" *ngIf="createForm.get('name_project').invalid && createForm.get('name_project').touched"><br>
-            <span *ngIf="createForm.get('name_project')['errors']['required']">Please enter name project</span>
+      <span style="color: red;" *ngIf="myCreateForm.get('name_project').invalid && myCreateForm.get('name_project').touched"><br>
+            <span *ngIf="myCreateForm.get('name_project')['errors']['required']">Please enter name project</span>
           </span>
       <div class="form-group">
         <label for="description">Description</label>
         <textarea id="description" class="form-control" rows="3" formControlName="description"></textarea>
-        <span style="color: red;" *ngIf="createForm.get('description').invalid && createForm.get('description').touched"><br>
-            <span *ngIf="createForm.get('description')['errors']['required']">Please enter description project</span>
+        <span style="color: red;" *ngIf="myCreateForm.get('description').invalid && myCreateForm.get('description').touched"><br>
+            <span *ngIf="myCreateForm.get('description')['errors']['required']">Please enter description project</span>
           </span>
       </div>
     </div>
@@ -25,7 +25,7 @@
   <div class="modal-footer">
     <button class="btn btn-secondary" (click)="activeModal.dismiss()">Cancel</button>
     <button class="btn btn-success"
-            [disabled]="!createForm.valid">
+            [disabled]="!myCreateForm.valid">
       Submit Form
     </button>
   </div>
