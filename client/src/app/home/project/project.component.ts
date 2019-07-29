@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {ProjectService} from '../../shared/services/project.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {EditFormModalComponent} from '../../shared/modal/edit-form-modal/edit-form-modal.component';
-import {DeleteFormModalComponent} from '../../shared/modal/delete-form-modal/delete-form-modal.component';
-import {CreateFormModalComponent} from '../../shared/modal/create-form-modal/create-form-modal.component';
-import {AddUsersFormModalComponent} from '../../shared/modal/add-users-form-modal/add-users-form-modal.component';
+import {EditFormModalComponent} from '../../shared/modals/edit-form-modal/edit-form-modal.component';
+import {DeleteFormModalComponent} from '../../shared/modals/delete-form-modal/delete-form-modal.component';
+import {CreateFormModalComponent} from '../../shared/modals/create-form-modal/create-form-modal.component';
+import {AddUsersFormModalComponent} from '../../shared/modals/add-users-form-modal/add-users-form-modal.component';
 import {User} from '../../shared/models/user.model';
 import {UserService} from '../../shared/services/user.service';
 import {AuthService} from '../../shared/services/auth.service';
