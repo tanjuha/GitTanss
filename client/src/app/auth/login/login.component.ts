@@ -35,30 +35,11 @@ export class LoginComponent implements OnInit {
     const formData = this.formLogin.value;
     this.auth.loginUser(formData).subscribe(
       res => {
-        console.log(res);
         localStorage.setItem('token', res.token);
         this.router.navigate([`/projects`]);
-        console.log('this is value - ' + formData.username);
       },
-      error =>  console.log(error)
+      error =>    this.showMessage('Incorrect username or password.')
     );
   }
 }
 
-/*
-  onSubmit() {
-    const formData = this.formLogin.value;
-    this.auth.getUserByUsername(formData.username).subscribe((user) => {
-      console.log(user);
-      console.log('user.password  - ' + user.password );
-      if (user) {
-        if (user.password === formData.password) {
-          // logic
-        } else {
-          this.showMessage('not exist user by password');
-        }
-      } else {
-        this.showMessage('not exist user by username');
-      }
-    });
-  }*/

@@ -23,8 +23,8 @@ export class ThemeService {
   }
 
   private setTheme(theme: {}) {
-    Object.keys(theme).forEach(k =>
-      document.documentElement.style.setProperty(`--${k}`, theme[k])
+    Object.keys(theme).forEach(color =>
+      document.documentElement.style.setProperty(`--${color}`, theme[color])
     );
   }
 }

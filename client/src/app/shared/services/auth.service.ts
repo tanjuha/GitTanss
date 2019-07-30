@@ -3,6 +3,9 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Router} from '@angular/router';
 import {JwtHelperService} from '@auth0/angular-jwt';
+import {map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {User} from '../models/user.model';
 
 @Injectable()
 export class AuthService {
@@ -22,21 +25,19 @@ export class AuthService {
     }
   }
 
-/*  getUserByUsername (username): Observable<any> {
-    return this.http.get<any>(`${this.getUserByUsernameUrl}/${username}`).pipe(map(data => {
-      return {
-        username: data[0].username,
-        password: data[0].password
-      };
-    }));
-  }*/
 
   registrationUser(user) {
      return this.http.post<any>(this.registerUrl, user);
   }
 
-  loginUser(user) {
-    return this.http.post<any>(this.loginUrl, user);
+  loginUser(user: User): Observable<any> {
+    return this.http.post<any>(this.loginUrl, user).pipe(map(data => {
+      return {
+        username: data['user'][0].username,
+        password: data['user'][0].password,
+        token: data['token']
+      };
+    }));
   }
 
   logIn() {
@@ -49,3 +50,4 @@ export class AuthService {
   }
 
 }
+

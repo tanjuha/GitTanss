@@ -89,6 +89,8 @@ module.exports.loginUser = (req, res) => {
             res.status(401).send('Invalid username');
         }else if(!req.body.password) {
             res.status(401).send('Invalid password');
+        }else {
+            res.status(401).send('Not exist user');
         }
     }).catch((err)  => {
         res.status(500).send(err);
