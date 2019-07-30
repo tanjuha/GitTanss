@@ -16,12 +16,15 @@ import {HomeRoutingModule} from './home/home-routing.module';
 import {HomeGuard} from './home/home-guard';
 import {ProjectService} from './shared/services/project.service';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import {ThemeService} from './shared/services/theme.service';
+import { ThemeComponent } from './components/theme/theme.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    ThemeComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
     AuthService,
     ProjectService,
     AuthGuard,
-    HomeGuard
+    HomeGuard,
+    ThemeService
   ],
   bootstrap: [AppComponent],
 })
