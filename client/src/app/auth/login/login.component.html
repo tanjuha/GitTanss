@@ -1,4 +1,5 @@
 <h2>Login</h2>
+<div class="alert alert-{{message.type}}" *ngIf="message.text">{{message.text}}</div>
 <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="username">Username</label>
@@ -18,5 +19,5 @@
     <small id="help" class="form-text text-muted">Don't have an account? <a routerLink="/registration">Registration</a></small>
   </div>
   <br>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" [disabled]="formLogin.invalid">Submit</button>
 </form>
