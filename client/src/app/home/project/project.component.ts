@@ -61,11 +61,19 @@ export class ProjectComponent implements OnInit {
 
   edit(project) {
     const modalRef = this.modalService.open(EditFormModalComponent);
-    modalRef.componentInstance.id = project.id;
     modalRef.componentInstance.name_project = project.name_project;
     modalRef.componentInstance.description = project.description;
     modalRef.result.then((result) => {
-      console.log(result);
+      project.description = result.description;
+      project.name_project = result.name_project;
+      this.project.edit(result.name_project, result.description, project.id).subscribe(res => {
+          console.log('successfully edit project');
+        },
+        err => {
+          console.log(err);
+        }
+      );
+      console.log('edit project');
     }).catch((error) => {
       console.log(error);
     });

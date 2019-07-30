@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ProjectService} from '../../services/project.service';
@@ -12,7 +12,8 @@ import {AuthService} from '../../services/auth.service';
 })
 export class CreateFormModalComponent implements OnInit {
 
-  @Input() myProject: any;
+  @Input()
+  myProject: any;
   myCreateForm: FormGroup;
 
   constructor(

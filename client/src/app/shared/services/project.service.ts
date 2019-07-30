@@ -25,7 +25,7 @@ export class ProjectService {
     return this.http.post<Project[]>(this.createProjectUrl, {name_project,  description, user_id});
   }
 
-  update(project, id: Project) {
-    return this.http.put<Project[]>(`${this.updateProjectUrl}/${id}`, project);
+  edit(name_project, description, id: Project) {
+    return this.http.put<Project[]>(`${this.updateProjectUrl}/${id}`, {name_project,  description, id});
   }
 }

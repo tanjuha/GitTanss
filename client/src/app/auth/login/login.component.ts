@@ -42,7 +42,23 @@ export class LoginComponent implements OnInit {
       },
       error =>  console.log(error)
     );
+  }
 }
 
-}
-
+/*
+  onSubmit() {
+    const formData = this.formLogin.value;
+    this.auth.getUserByUsername(formData.username).subscribe((user) => {
+      console.log(user);
+      console.log('user.password  - ' + user.password );
+      if (user) {
+        if (user.password === formData.password) {
+          // logic
+        } else {
+          this.showMessage('not exist user by password');
+        }
+      } else {
+        this.showMessage('not exist user by username');
+      }
+    });
+  }*/

@@ -9,6 +9,7 @@ export class AuthService {
 
   private registerUrl = `${environment.url}/auth/registration`;
   private loginUrl = `${environment.url}/auth/login`;
+  private getUserByUsernameUrl = `${environment.url}/user/username`;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -20,6 +21,15 @@ export class AuthService {
       return this.jwtHelper.decodeToken(token);
     }
   }
+
+/*  getUserByUsername (username): Observable<any> {
+    return this.http.get<any>(`${this.getUserByUsernameUrl}/${username}`).pipe(map(data => {
+      return {
+        username: data[0].username,
+        password: data[0].password
+      };
+    }));
+  }*/
 
   registrationUser(user) {
      return this.http.post<any>(this.registerUrl, user);
