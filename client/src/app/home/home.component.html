@@ -1,8 +1,10 @@
 <nav class="navbar navbar-dark bg-dark justify-content-between">
-  <a class="navbar-brand">GitTanss</a>
+  <a class="navbar-brand" routerLink="/myProjects">GitTanss</a>
+  <a routerLink="/my-projects">My projects</a>
+  <a routerLink="/projects">All projects</a>
+  <h1>{{currentUser.username}}</h1>
   <form class="form-inline" (ngSubmit)="onSubmit()">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">logOut</button>
   </form>
 </nav>
-<h1>{{currentUser.username}}</h1>
 <router-outlet></router-outlet>

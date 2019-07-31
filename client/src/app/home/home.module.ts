@@ -3,11 +3,13 @@ import { ProjectComponent } from './project/project.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {SharedModule} from '../shared/shared.module';
+import { MyProjectsComponent } from './my-projects/my-projects.component';
 
 
 @NgModule({
   declarations: [
-    ProjectComponent
+    ProjectComponent,
+    MyProjectsComponent
   ],
   imports: [
     CommonModule,

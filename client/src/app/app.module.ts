@@ -18,7 +18,7 @@ import {ProjectService} from './shared/services/project.service';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {ThemeService} from './shared/services/theme.service';
 import { ThemeComponent } from './components/theme/theme.component';
-import {CurrentUserService} from './shared/services/current-user.service';
+
 
 
 @NgModule({
@@ -45,8 +45,7 @@ import {CurrentUserService} from './shared/services/current-user.service';
     ProjectService,
     AuthGuard,
     HomeGuard,
-    ThemeService,
-    CurrentUserService
+    ThemeService
   ],
   bootstrap: [AppComponent],
 })
