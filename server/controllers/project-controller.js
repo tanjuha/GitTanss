@@ -15,6 +15,20 @@ module.exports.getProjects = function (req, res) {
 
 };
 
+// get my projects
+module.exports.getMyProjects = function (req, res) {
+    let query = `select * from projects where user_id = ${req.params.id}`;
+    db.query(query).spread(function (result, metadata) {
+        if(result.length > 0){
+            res.json(result);
+        }else{
+            res.status(400).send(" 400 error get my projects");
+        }
+    }).catch(function (err) {
+        res.status(500).send(" error get my projects");
+    })
+};
+
 // create project
 module.exports.createProject = function (req, res) {
     let query = `INSERT INTO public.projects (name_project, description, user_id) VALUES ( '${req.body.name_project}', '${req.body.description}', '${req.body.user_id}' )`;

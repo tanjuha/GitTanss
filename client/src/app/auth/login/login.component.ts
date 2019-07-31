@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
     this.auth.loginUser(formData).subscribe(
       res => {
         localStorage.setItem('token', res.token);
-        this.router.navigate([`/projects`]);
+        this.router.navigate([`/my-projects`]);
       },
       error =>    this.showMessage({
         text: 'Incorrect username or password',
