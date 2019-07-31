@@ -25,5 +25,9 @@
         </span>
     </span>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <div>
+    <small id="help" class="form-text text-muted">Already have an account? <a routerLink="/login">Login</a></small>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary" [disabled]="formRegistration.invalid">Submit</button>
 </form>

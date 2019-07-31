@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../shared/services/auth.service';
 import {Router} from '@angular/router';
+import {User} from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-registration',
@@ -29,7 +30,11 @@ export class RegistrationComponent implements OnInit {
         console.log('successfully create user');
       },
       err => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/login'], {
+          queryParams: {
+            nowYouCanLogin: true
+          }
+        });
       }
 
   );
