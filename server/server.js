@@ -23,8 +23,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 require('./routes/routes')(app);
 
-db.sync().then(function () {
-    let server =  app.listen(3000);
+const server = app.listen(3000, function() {
     let port = server.address().port;
-    console.log(`App listening at http://localhost:${port}`);
+    console.log('Server listening on http://localhost:%s', port);
 });

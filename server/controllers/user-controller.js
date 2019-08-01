@@ -4,85 +4,72 @@ const jwt = require('jsonwebtoken');
 
 
 //get users
-module.exports.getUsers = function (req, res) {
-    let query = "SELECT * FROM users";
-    db.query(query).spread(function (result, metadata) {
-        if(result.length > 0){
-            res.json(result);
-        }else{
-            res.status(400).send(" 400 error get users");
+exports.getUsers = (req, res) =>  {
+    db.query('SELECT * FROM users;', (err, result) => {
+        if (err) {
+            return res.status(400).send("Bad request", err);
         }
-    }).catch(function (err) {
-        res.status(500).send(" 500 error get users");
-    })
-
+        res.status(200).json(result.rows);
+    });
 };
 
 
 // get projects user
-module.exports.getOwner = function (req, res) {
-    let query = "SELECT projects.description, users.email from projects join users on projects.id_user = users.id where projects.id_user=2;";
-    db.query(query).spread(function (result, metadata) {
-        if(result.length > 0){
-            res.json(result);
-        }else{
-            res.status(400).send(" 400 error get users");
+exports.getOwner = (req, res) =>  {
+    db.query('SELECT projects.description, users.email from projects join users on projects.id_user = users.id where projects.id_user=2;', (err, result) => {
+        if (err) {
+            return res.status(400).send("Bad request", err);
         }
-    }).catch(function (err) {
-        res.status(500).send(" error get owner");
-    })
-
+        res.status(200).json(result.rows);
+    });
 };
+
 
 // get user by id
-module.exports.getUserById = function (req, res) {
-    let query = `select * from users where id = ${req.params.id}`;
-    db.query(query).spread(function (result, metadata) {
-        if(result.length > 0){
-            res.json(result);
-        }else{
-            res.status(400).send(" 400 error get users by id");
+exports.getUserById = (req, res) =>  {
+    db.query(`select * from users where id = ${req.params.id};`, (err, result) => {
+        if (err) {
+            return res.status(400).send("Bad request", err);
         }
-    }).catch(function (err) {
-        res.status(500).send(" error get owner by id");
-    })
+        res.status(200).json(result.rows);
+    });
 };
 
+
 // get user by username
-module.exports.getUserByUsername =  function (req, res) {
-    let query = `select * from users where username = '${req.params.username}'`;
-    db.query(query).spread(function (result, metadata) {
-        if(result.length > 0){
-            res.json(result);
-        }else{
-            res.status(400).send(" 400 error get users by id");
+exports.getUserByUsername = (req, res) =>  {
+    db.query(`select * from users where username = '${req.params.username}';`, (err, result) => {
+        if (err) {
+            return res.status(400).send("Bad request", err);
         }
-    }).catch(function (err) {
-        res.status(500).send(" error get owner by id");
-    })
+        res.status(200).json(result.rows);
+    });
 };
 
 
 // delete user
-module.exports.deleteUser = function (req, res) {
-    let query = `DELETE FROM users WHERE id =${req.params.id};`;
-    db.query(query).spread(function (result, metadata) {
-        res.status(200).send("successfully users delete");
-    }).catch(function (err) {
-        res.status(500).send(" 505 error delete users");
-    })
+exports.deleteUser = (req, res) =>  {
+    db.query(`DELETE FROM users WHERE id =${req.params.id};`, (err, result) => {
+        if (err) {
+            return res.status(400).send("Bad request", err);
+        }
+        res.status(200).json(result.rows);
+    });
 };
 
+
 // login user
-module.exports.loginUser = (req, res) => {
-    let query = `select * from users where username ='${req.body.username}' AND password ='${req.body.password}'`;
-    db.query(query).spread(function (result, metadata) {
+exports.loginUser = (req, res) =>  {
+    db.query(`select * from users where username ='${req.body.username}' AND password ='${req.body.password};'`, (err, result) => {
+        if (err) {
+            return res.status(400).send("Bad request", err);
+        }
         if(result.length > 0){
             let payload = {username: req.body.username};
             let token = jwt.sign(payload, 'mySecretKey');
             res.json({
-                    user: result,
-                    token: token
+                user: result,
+                token: token
             });
             //res.status(200).send(token)
         }else if(!req.body.username) {
@@ -92,18 +79,20 @@ module.exports.loginUser = (req, res) => {
         }else {
             res.status(401).send('Not exist user');
         }
-    }).catch((err)  => {
-        res.status(500).send(err);
-    })
+        res.status(200).json(result.rows);
+    });
 };
 
+
+
 // registration
-module.exports.registrationUser = function (req, res) {
-    let query = `INSERT INTO public.users (email, username, password) VALUES ( '${req.body.email}', '${req.body.username}', '${req.body.password}' )`;
-    db.query(query).spread(function (result, metadata) {
-        res.status(200).send('successfully registration');
-    }).catch(function (err) {
-        res.status(500).send(err);
-    })
+exports.registrationUser = (req, res) =>  {
+    db.query(`INSERT INTO public.users (email, username, password) VALUES ( '${req.body.email}', '${req.body.username}', '${req.body.password}' )`, (err, result) => {
+        if (err) {
+            return res.status(400).send("Bad request", err);
+        }
+        res.status(200).json(result.rows);
+    });
 };
+
 

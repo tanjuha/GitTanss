@@ -13,14 +13,8 @@ export class AuthService {
 
   private registerUrl = `${environment.url}/auth/registration`;
   private loginUrl = `${environment.url}/auth/login`;
-
-  private currentUserSubject: BehaviorSubject<any>;
-  public currentUser: Observable<User>;
-
-
+  public currentUserId: any;
   constructor(private http: HttpClient, private router: Router) {
-    this.currentUserSubject = new BehaviorSubject<any>(this.currentUserValueId);
-    this.currentUser = this.currentUserSubject.asObservable();
   }
 
   jwtHelper = new JwtHelperService();
@@ -38,7 +32,7 @@ export class AuthService {
   }
 
   public get currentUserValue(): User {
-    return this.currentUserSubject.value;
+    return this.currentUserId;
   }
 
 
@@ -47,12 +41,15 @@ export class AuthService {
   }
 
   loginUser(user: User): Observable<any> {
-    return this.http.post<any>(this.loginUrl, user).pipe(map(data => {
+    return this.http.post<any>(this.loginUrl, user).pipe(map(project => {
+      if (user) {
+        this.currentUserId = project['user'][0].id;
+      }
       return {
-        id: data['user'][0].id,
-        username: data['user'][0].username,
-        password: data['user'][0].password,
-        token: data['token']
+        id: project['user'][0].id,
+        username: project['user'][0].username,
+        password: project['user'][0].password,
+        token: project['token']
       };
     }));
   }
