@@ -4,7 +4,7 @@ import {environment} from '../../../environments/environment';
 import {Router} from '@angular/router';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {map} from 'rxjs/operators';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {EMPTY, Observable} from 'rxjs';
 import {User} from '../models/user.model';
 
 
@@ -13,8 +13,9 @@ export class AuthService {
 
   private registerUrl = `${environment.url}/auth/registration`;
   private loginUrl = `${environment.url}/auth/login`;
-  public currentUserId: any;
+  public currentUser: Observable<User> ;
   constructor(private http: HttpClient, private router: Router) {
+    this.currentUser = EMPTY;
   }
 
   jwtHelper = new JwtHelperService();
@@ -31,8 +32,8 @@ export class AuthService {
     return  info.username;
   }
 
-  public get currentUserValue(): User {
-    return this.currentUserId;
+  public get currentUserValue(): Observable<User> {
+    return this.currentUser;
   }
 
 
@@ -43,7 +44,7 @@ export class AuthService {
   loginUser(user: User): Observable<any> {
     return this.http.post<any>(this.loginUrl, user).pipe(map(project => {
       if (user) {
-        this.currentUserId = project['user'][0].id;
+        this.currentUser = project['user'][0].id;
       }
       return {
         id: project['user'][0].id,
@@ -60,6 +61,7 @@ export class AuthService {
 
   logOut() {
      localStorage.removeItem('token');
+     this.currentUser = EMPTY;
     this.router.navigate(['/login']);
   }
 
