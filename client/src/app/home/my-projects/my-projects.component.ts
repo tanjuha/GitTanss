@@ -34,7 +34,7 @@ export class MyProjectsComponent implements OnInit {
     modalRef.componentInstance.myProject = {};
     modalRef.result.then((result) => {
       this.projects.unshift(result);
-      this.project.create(result.name_project, result.description,  this.auth.currentUserValue).subscribe(res => {
+      this.project.create(result.name_project, result.description, 1).subscribe(res => {
           console.log( 'create user = ' + res);
         },
         err => {
