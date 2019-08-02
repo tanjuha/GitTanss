@@ -4,7 +4,7 @@ import {environment} from '../../../environments/environment';
 import {Router} from '@angular/router';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {map} from 'rxjs/operators';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import {User} from '../models/user.model';
 
 
@@ -15,15 +15,14 @@ export class AuthService {
   private loginUrl = `${environment.url}/auth/login`;
 
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+  }
 
   jwtHelper = new JwtHelperService();
 
-  decodeToken() {
+   public get currentUser() {
     const token = localStorage.getItem('token');
-    if (token) {
-      return this.jwtHelper.decodeToken(token);
-    }
+     return this.jwtHelper.decodeToken(token);
   }
 
 
@@ -34,9 +33,9 @@ export class AuthService {
   loginUser(user: User): Observable<any> {
     return this.http.post<any>(this.loginUrl, user).pipe(map(data => {
       return {
-        id: data['user'][0].id,
-        username: data['user'][0].username,
-        password: data['user'][0].password,
+        id: data['user'].id,
+        username: data['user'].username,
+        password: data['user'].password,
         token: data['token']
       };
     }));
@@ -47,6 +46,7 @@ export class AuthService {
   }
 
   logOut() {
+     console.log('current user = ' + this.currentUser);
      localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }

@@ -20,7 +20,7 @@ export class ProjectService {
   }
 
   getProjectsByUserId () {
-    const  projects  = 1;
+    const  projects  = this.auth.currentUser.id;
       return this.http.get(`${this.getProjectsByUserIdUrl}/${projects}`);
   }
 

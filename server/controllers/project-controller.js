@@ -2,7 +2,7 @@ const db = require('../database/database');
 
 //get all projects
 module.exports.getProjects = function (req, res) {
-    let query = "SELECT * FROM projects ORDER BY id DESC";
+    let query = "select * from projects order by id desc;";
     db.query(query).spread(function (result, metadata) {
         if(result.length > 0){
             res.json(result);
@@ -17,7 +17,7 @@ module.exports.getProjects = function (req, res) {
 
 // get my projects
 module.exports.getMyProjects = function (req, res) {
-    let query = `select * from projects where user_id = ${req.params.id}`;
+    let query = `select * from projects where user_id = ${req.params.id} order by id desc`;
     db.query(query).spread(function (result, metadata) {
         if(result.length > 0){
             res.json(result);

@@ -77,11 +77,11 @@ module.exports.deleteUser = function (req, res) {
 module.exports.loginUser = (req, res) => {
     let query = `select * from users where username ='${req.body.username}' AND password ='${req.body.password}'`;
     db.query(query).spread(function (result, metadata) {
-        if(result.length > 0){
-            let payload = {username: req.body.username};
+        if(result){
+            let payload = {id: result[0].id, username: result[0].username};
             let token = jwt.sign(payload, 'mySecretKey');
             res.json({
-                    user: result,
+                    user: result[0],
                     token: token
             });
             //res.status(200).send(token)

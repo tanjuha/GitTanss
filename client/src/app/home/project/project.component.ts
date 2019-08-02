@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ProjectService} from '../../shared/services/project.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {EditFormModalComponent} from '../../shared/modals/edit-form-modal/edit-form-modal.component';
-import {User} from '../../shared/models/user.model';
-import {UserService} from '../../shared/services/user.service';
 import {AuthService} from '../../shared/services/auth.service';
 
 
@@ -16,25 +14,12 @@ import {AuthService} from '../../shared/services/auth.service';
 export class ProjectComponent implements OnInit {
 
   projects: any ;
-  currentUser: User;
-  currentUserId: any;
-
 
   constructor( private project: ProjectService,
                private modalService: NgbModal,
-               public userService: UserService,
                public auth: AuthService) { }
 
   ngOnInit() {
-
-    // get current user username from jwt
-    this.currentUser = this.auth.decodeToken();
-
-    // get current user id
-    this.userService.getUserByUsername(this.currentUser.username).subscribe(data => {
-      this.currentUserId = data.map(elem => elem.id);
-    });
-
     this.project.getProjects().subscribe((data: any) => this.projects = data);
   }
 

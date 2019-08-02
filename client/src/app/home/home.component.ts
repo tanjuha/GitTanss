@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.router.navigate(['/my-projects']);
-    this.currentUser = this.auth.decodeToken();
+    this.currentUser = this.auth.currentUser;
     console.log('jwt token - ' + this.currentUser.username);
   }
 
