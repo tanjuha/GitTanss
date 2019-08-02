@@ -14,14 +14,8 @@ export class AuthService {
   private registerUrl = `${environment.url}/auth/registration`;
   private loginUrl = `${environment.url}/auth/login`;
 
-  private currentUserSubject: BehaviorSubject<any>;
-  public currentUser: Observable<User>;
 
-
-  constructor(private http: HttpClient, private router: Router) {
-    this.currentUserSubject = new BehaviorSubject<any>(this.currentUserValueId);
-    this.currentUser = this.currentUserSubject.asObservable();
-  }
+  constructor(private http: HttpClient, private router: Router) {}
 
   jwtHelper = new JwtHelperService();
 
@@ -30,15 +24,6 @@ export class AuthService {
     if (token) {
       return this.jwtHelper.decodeToken(token);
     }
-  }
-
-  public get currentUserValueId(): User {
-    const info = this.jwtHelper.decodeToken(localStorage.getItem('token'));
-    return  info.username;
-  }
-
-  public get currentUserValue(): User {
-    return this.currentUserSubject.value;
   }
 
 

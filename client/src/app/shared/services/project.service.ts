@@ -16,23 +16,23 @@ export class ProjectService {
   constructor(private http: HttpClient, private auth: AuthService) {}
 
   getProjects() {
-     return this.http.get<Project[]>(this.getProjectsUrl);
+     return this.http.get(this.getProjectsUrl);
   }
 
   getProjectsByUserId () {
-    const  projects  = this.auth.currentUserValue;
-      return this.http.get<Project[]>(`${this.getProjectsByUserIdUrl}/${projects}`);
+    const  projects  = 1;
+      return this.http.get(`${this.getProjectsByUserIdUrl}/${projects}`);
   }
 
   deleteProject(id: Project) {
-    return this.http.delete<Project[]>(`${this.deleteProjectUrl}/${id}`);
+    return this.http.delete(`${this.deleteProjectUrl}/${id}`);
   }
 
   create(name_project, description, user_id) {
-    return this.http.post<Project[]>(this.createProjectUrl, {name_project,  description, user_id});
+    return this.http.post(this.createProjectUrl, {name_project,  description, user_id});
   }
 
   edit(name_project, description, id: Project) {
-    return this.http.put<Project[]>(`${this.updateProjectUrl}/${id}`, {name_project,  description, id});
+    return this.http.put(`${this.updateProjectUrl}/${id}`, {name_project,  description, id});
   }
 }
