@@ -7,7 +7,7 @@ import {User} from '../../shared/models/user.model';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  styleUrls: ['./registration.component.css', '../auth.component.css']
 })
 export class RegistrationComponent implements OnInit {
 

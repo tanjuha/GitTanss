@@ -9,3 +9,8 @@
   --success-btn: #218838;
   --danger-btn: #bb432c;
 }
+body{
+  background: var(--background-color)!important;
+  color: var(--text-color)!important;
+}
+

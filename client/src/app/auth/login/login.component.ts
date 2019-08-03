@@ -7,7 +7,7 @@ import {Message} from '../../shared/models/message.model';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css', '../auth.component.css']
 })
 export class LoginComponent implements OnInit {
 
