@@ -2,6 +2,10 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 :root {
   --primary-color: #fff;
+  --secondary-color: #ddd;
   --background-color: #e5e5e5;
   --text-color: #2d2d2d;
+  --primary-btn: #3c7ebb;
+  --success-btn: #218838;
+  --danger-btn: #bb432c;
 }
