@@ -17,15 +17,12 @@ import {HomeGuard} from './home/home-guard';
 import {ProjectService} from './shared/services/project.service';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {ThemeService} from './shared/services/theme.service';
-import { ThemeComponent } from './components/theme/theme.component';
-
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ThemeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
