@@ -6,7 +6,8 @@
        *ngIf="message.text">
     {{message.text}}
   </div>
-  <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+  <form [formGroup]="formLogin"
+        (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="username">
         Username
@@ -43,7 +44,7 @@
       </small>
     </div>
     <br>
-    <button type="submit" class="btn btn-primary" [disabled]="formLogin.invalid">
+    <button type="submit" class="btn btn-primary w-100" [disabled]="formLogin.invalid">
       Login
     </button>
   </form>

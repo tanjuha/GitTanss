@@ -17,6 +17,11 @@ button{
   border-color: var(--btn-primary) ;
 }
 
+.btn-primary:hover{
+  background: var(--btn-primary-hover);
+  border-color: var(--btn-primary-hover);
+}
+
 .navbar{
   -webkit-box-shadow: 0 2px 5px var(--box-shadow);
   box-shadow: 0 2px 5px var(--box-shadow);

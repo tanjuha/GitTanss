@@ -7,11 +7,17 @@
   --text-color: #2d2d2d;
   --text-color-light: #5d5c5d;
   --box-shadow: #b9b9b9;
-  /*Button*/
+  --box-shadow-darck: #8c8c8c ;
+  /*button*/
   --btn-primary: #3c7ebb;
+  --btn-primary-hover: #3B69A5;
   --btn-success: #218838;
+  --btn-success-hover: #206030;
   --btn-danger: #bb432c;
+  --btn-danger-hover: #9d452e;
   --btn-secondary: #b9b9b9;
+  /*time*/
+  --translition-time: 0.3s;
 }
 body{
   background: var(--background-color)!important;

@@ -2,7 +2,8 @@
   <h2 class="auth-title">
     Register
   </h2>
-  <form [formGroup]="formRegistration" (submit)= "registration()">
+  <form [formGroup]="formRegistration"
+        (submit)= "registration()">
     <div class="form-group">
       <label for="email">
         Email address
@@ -63,7 +64,7 @@
       </small>
     </div>
     <br>
-    <button type="submit" class="btn btn-primary" [disabled]="formRegistration.invalid">
+    <button type="submit" class="btn btn-primary w-100" [disabled]="formRegistration.invalid">
       Register
     </button>
   </form>

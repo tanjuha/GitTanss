@@ -1,16 +1,39 @@
-<h4>Create projects:</h4>
-<button  class="btn btn-primary" (click)="create()">Create project</button>
-<h4>List projects:</h4>
+<h4>
+  Create projects:
+</h4>
+<button  class="btn btn-primary"
+         (click)="create()">
+  Create project
+</button>
+<h4>
+  List projects:
+</h4>
 <div class="container">
   <div class="row">
-    <div class="col-4" *ngFor="let project of projects; let index = index" >
+    <div class="col-sm-12 col-md-6 col-lg-4"
+         *ngFor="let project of projects; let index = index;" >
       <div class="card">
-        <div class="card-body">
-          <h5 class="card-title" >{{project.name_project}}</h5>
-          <p class="card-text">{{project.description}}</p>
-          <button  class="btn btn-success" (click)="addUsers(project)">Add users</button>
-          <button  class="btn btn-primary" (click)="edit(project)">Edit</button>
-          <button class="btn btn-danger" (click)="delete(project, index)">Delete</button>
+        <div class="card-body d-flex flex-column justify-content-between">
+          <h5 class="card-title" >
+            {{project.name_project}}
+          </h5>
+          <p class="card-text flex-shrink-1 flex-grow-1">
+            {{project.description}}
+          </p>
+          <div class="d-flex">
+            <!--   <button  class="btn btn-success"
+                        (click)="addUsers(project)">
+                 Add users
+               </button>-->
+            <button  class="btn btn-primary mr-1 w-100"
+                     (click)="edit(project)">
+              Edit
+            </button>
+            <button class="btn btn-danger ml-1 w-100"
+                    (click)="delete(project, index)">
+              Delete
+            </button>
+          </div>
         </div>
       </div>
     </div>

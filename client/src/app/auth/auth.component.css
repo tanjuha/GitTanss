@@ -28,9 +28,13 @@ button{
 }
 
 .btn-primary{
-  width: 100%;
   background: var(--btn-primary);
   border-color: var(--btn-primary) ;
+}
+
+.btn-primary:hover{
+  background: var(--btn-primary-hover);
+  border-color: var(--btn-primary-hover);
 }
 
 .form-container{
