@@ -11,13 +11,19 @@ import {User} from '../shared/models/user.model';
 export class HomeComponent implements OnInit {
 
   currentUser: User;
+  toggleNavbar: boolean;
+  logoUrl: string;
 
   constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
     this.router.navigate(['/my-projects']);
     this.currentUser = this.auth.currentUser;
-    console.log('jwt token - ' + this.currentUser.username);
+    this.logoUrl = '../../assets/images/logo.png';
+  }
+
+  clickEvent() {
+    this.toggleNavbar = !this.toggleNavbar;
   }
 
   onSubmit() {

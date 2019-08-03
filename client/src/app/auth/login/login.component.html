@@ -1,25 +1,50 @@
 <div class="form-container">
-  <h2>Login</h2>
-  <div class="alert alert-{{message.type}}" *ngIf="message.text">{{message.text}}</div>
+  <h2 class="auth-title">
+    Login
+  </h2>
+  <div class="alert alert-{{message.type}}"
+       *ngIf="message.text">
+    {{message.text}}
+  </div>
   <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter username" formControlName="username">
-      <span class="form-control-error" *ngIf="formLogin.get('username').invalid && formLogin.get('username').touched">
-        <span *ngIf="formLogin.get('username')['errors']['required']">Please enter username</span>
+      <label for="username">
+        Username
+      </label>
+      <input type="text" class="form-control" id="username" aria-describedby="emailHelp"
+             placeholder="Enter username" formControlName="username">
+      <span class="form-control-error"
+            *ngIf="formLogin.get('username').invalid && formLogin.get('username').touched">
+        <span
+          *ngIf="formLogin.get('username')['errors']['required']">
+          Please enter username
+        </span>
       </span>
     </div>
     <div class="form-group">
-      <label for="password">Password</label>
+      <label for="password">
+        Password
+      </label>
       <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
-      <span class="form-control-error" *ngIf="formLogin.get('password').invalid && formLogin.get('password').touched">
-        <span *ngIf="formLogin.get('password')['errors']['required']">Please enter password</span>
+      <span class="form-control-error"
+            *ngIf="formLogin.get('password').invalid && formLogin.get('password').touched">
+        <span
+          *ngIf="formLogin.get('password')['errors']['required']">
+          Please enter password
+        </span>
       </span>
     </div>
     <div>
-      <small id="help" class="form-text text-muted">Don't have an account? <a routerLink="/registration">Registration</a></small>
+      <small id="help" class="form-text text-muted">
+        Don't have an account?
+        <a routerLink="/registration">
+          Registration
+        </a>
+      </small>
     </div>
     <br>
-    <button type="submit" class="btn btn-primary" [disabled]="formLogin.invalid">Login</button>
+    <button type="submit" class="btn btn-primary" [disabled]="formLogin.invalid">
+      Login
+    </button>
   </form>
 </div>

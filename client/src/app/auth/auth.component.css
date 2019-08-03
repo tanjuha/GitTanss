@@ -1,14 +1,5 @@
-h2{
-  margin: 0;
-  padding: 0 0 30px 0;
-  text-align: center;
-  font-size: 35px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
 a{
-  color: var(--primary-btn);
+  color: var(--btn-primary);
 }
 
 label{
@@ -17,6 +8,17 @@ label{
 
 button{
   border-radius: 0;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.auth-title{
+  margin: 0;
+  padding: 0 0 30px 0;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .row{
@@ -25,12 +27,18 @@ button{
   justify-content: center;
 }
 
+.btn-primary{
+  width: 100%;
+  background: var(--btn-primary);
+  border-color: var(--btn-primary) ;
+}
+
 .form-container{
   margin-top: 25px;
   padding: 25px;
   background: var(--primary-color);
-  -webkit-box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+  -webkit-box-shadow: 0 4px 10px 4px var(--box-shadow);
+  box-shadow: 0 4px 10px 4px var(--box-shadow);
 }
 
 .form-control{
@@ -38,7 +46,7 @@ button{
 }
 
 .form-control:focus{
-  border: 2px solid var(--primary-btn);
+  border: 2px solid var(--btn-primary);
   box-shadow: none;
 }
 
@@ -47,18 +55,10 @@ button{
   margin-bottom: 30px;
 }
 
-.form-container .btn{
-  width: 100%;
-  border: var(--primary-btn);
-  font-size: 20px;
-  text-transform: uppercase;
-  background: var(--primary-btn);
-}
-
 .form-control-error{
   position: absolute;
   font-size: 14px;
-  color: var(--danger-btn);
+  color: var(--btn-danger);
 }
 
 .alert {

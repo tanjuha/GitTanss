@@ -1,33 +1,70 @@
 <div class="form-container">
-  <h2>Register</h2>
+  <h2 class="auth-title">
+    Register
+  </h2>
   <form [formGroup]="formRegistration" (submit)= "registration()">
     <div class="form-group">
-      <label for="email">Email address</label>
-      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email" >
-      <span class="form-control-error"*ngIf="formRegistration.get('email').invalid && formRegistration.get('email').touched">
-      <span *ngIf="formRegistration.get('email')['errors']['required']">Please enter email</span>
-      <span *ngIf="formRegistration.get('email')['errors']['email']">Enter correct email</span>
+      <label for="email">
+        Email address
+      </label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+             placeholder="Enter email" formControlName="email" >
+      <span class="form-control-error"
+            *ngIf="formRegistration.get('email').invalid && formRegistration.get('email').touched">
+      <span
+        *ngIf="formRegistration.get('email')['errors']['required']">
+        Please enter email
+      </span>
+      <span
+        *ngIf="formRegistration.get('email')['errors']['email']">
+        Enter correct email
+      </span>
     </span>
     </div>
     <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter username" formControlName="username">
-      <span class="form-control-error" *ngIf="formRegistration.get('username').invalid && formRegistration.get('username').touched">
-        <span *ngIf="formRegistration.get('username')['errors']['required']">Please enter username</span>
+      <label for="username">
+        Username
+      </label>
+      <input type="text" class="form-control" id="username" aria-describedby="emailHelp"
+             placeholder="Enter username" formControlName="username">
+      <span class="form-control-error"
+            *ngIf="formRegistration.get('username').invalid && formRegistration.get('username').touched">
+        <span
+          *ngIf="formRegistration.get('username')['errors']['required']">
+          Please enter username
+        </span>
       </span>
     </div>
     <div class="form-group">
-      <label for="password">Password</label>
+      <label for="password">
+        Password
+      </label>
       <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
-      <span class="form-control-error" *ngIf="formRegistration.get('password').invalid && formRegistration.get('password').touched">
-        <span *ngIf="formRegistration.get('password')['errors']['required']">Please enter password</span>
-        <span *ngIf="formRegistration.get('password')['errors']['minlength']">Password must be at least {{formRegistration.get('password')['errors']['minlength']['requiredLength']}} characters</span>
+      <span class="form-control-error"
+            *ngIf="formRegistration.get('password').invalid && formRegistration.get('password').touched">
+        <span
+          *ngIf="formRegistration.get('password')['errors']['required']">
+          Please enter password
+        </span>
+        <span
+          *ngIf="formRegistration.get('password')['errors']['minlength']">
+          Password must be at least
+          {{formRegistration.get('password')['errors']['minlength']['requiredLength']}}
+          characters
+        </span>
       </span>
     </div>
     <div>
-      <small id="help" class="form-text text-muted">Already have an account? <a routerLink="/login">Login</a></small>
+      <small id="help" class="form-text text-muted">
+        Already have an account?
+        <a routerLink="/login">
+          Login
+        </a>
+      </small>
     </div>
     <br>
-    <button type="submit" class="btn btn-primary" [disabled]="formRegistration.invalid">Register</button>
+    <button type="submit" class="btn btn-primary" [disabled]="formRegistration.invalid">
+      Register
+    </button>
   </form>
 </div>

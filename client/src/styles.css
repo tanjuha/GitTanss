@@ -5,9 +5,13 @@
   --secondary-color: #ddd;
   --background-color: #e5e5e5;
   --text-color: #2d2d2d;
-  --primary-btn: #3c7ebb;
-  --success-btn: #218838;
-  --danger-btn: #bb432c;
+  --text-color-light: #5d5c5d;
+  --box-shadow: #b9b9b9;
+  /*Button*/
+  --btn-primary: #3c7ebb;
+  --btn-success: #218838;
+  --btn-danger: #bb432c;
+  --btn-secondary: #b9b9b9;
 }
 body{
   background: var(--background-color)!important;
