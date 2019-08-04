@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ProjectService} from '../../shared/services/project.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {EditFormModalComponent} from '../../shared/modals/edit-form-modal/edit-form-modal.component';
-import {AuthService} from '../../shared/services/auth.service';
+import {ProjectService} from '../../services/project.service';
+import {AuthService} from '../../services/auth.service';
+import {EditFormModalComponent} from '../../modals/edit-form-modal/edit-form-modal.component';
+
 
 
 

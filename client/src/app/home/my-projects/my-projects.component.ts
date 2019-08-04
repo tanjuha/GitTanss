@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {ProjectService} from '../../shared/services/project.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {UserService} from '../../shared/services/user.service';
-import {AuthService} from '../../shared/services/auth.service';
-import {CreateFormModalComponent} from '../../shared/modals/create-form-modal/create-form-modal.component';
-import {EditFormModalComponent} from '../../shared/modals/edit-form-modal/edit-form-modal.component';
-import {DeleteFormModalComponent} from '../../shared/modals/delete-form-modal/delete-form-modal.component';
-import {AddUsersFormModalComponent} from '../../shared/modals/add-users-form-modal/add-users-form-modal.component';
+import {ProjectService} from '../../services/project.service';
+import {UserService} from '../../services/user.service';
+import {AuthService} from '../../services/auth.service';
+import {CreateFormModalComponent} from '../../modals/create-form-modal/create-form-modal.component';
+import {EditFormModalComponent} from '../../modals/edit-form-modal/edit-form-modal.component';
+import {DeleteFormModalComponent} from '../../modals/delete-form-modal/delete-form-modal.component';
 
 
 @Component({
@@ -78,16 +77,6 @@ export class MyProjectsComponent implements OnInit {
       console.log(`delete project - ${result} , - id = ${project.id}`);
     }).catch((error) => {
       console.log(`error delete project - ${error}`);
-    });
-  }
-
-  addUsers(project) {
-    const modalRef = this.modalService.open(AddUsersFormModalComponent);
-    modalRef.componentInstance.name_project = project.name_project;
-    modalRef.result.then((result) => {
-      console.log(result);
-    }).catch((error) => {
-      console.log(error);
     });
   }
 
