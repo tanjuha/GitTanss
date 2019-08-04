@@ -1,30 +1,56 @@
 <div class="modal-header">
-  <h4 class="modal-title">Edit Project</h4>
+  <h4 class="modal-title">
+    Edit Project
+  </h4>
+  <button type="button" class="close" aria-label="Close"
+          (click)="activeModal.dismiss('Cross click')">
+    <i class="fa fa-times"></i>
+  </button>
 </div>
-<form [formGroup]="editForm" (ngSubmit)="submitForm()">
+<form [formGroup]="editForm"
+      (ngSubmit)="submitForm()">
   <div class="modal-boy">
     <div class="container">
       <div class="form-group">
-        <label for="name_project">Name project</label>
-        <input id="name_project" type="text" [value]="name_project"
-               class="form-control"
+        <label for="name_project">
+          Name project
+        </label>
+        <input id="name_project" class="form-control" type="text"
+               [value]="name_project"
                formControlName="name_project" />
+        <span class="form-control-error"
+              *ngIf="editForm.get('name_project').invalid && editForm.get('name_project').touched">
+        <span
+          *ngIf="editForm.get('name_project')['errors']['required']">
+          Please enter name project
+        </span>
+      </span>
       </div>
-      <span style="color: red;" *ngIf="editForm.get('name_project').invalid && editForm.get('name_project').touched"><br>
-            <span *ngIf="editForm.get('name_project')['errors']['required']">Please enter name project</span>
-          </span>
       <div class="form-group">
-        <label for="description">Description</label>
-        <textarea id="description" class="form-control" [value]="description" rows="3" formControlName="description"></textarea>
-        <span style="color: red;" *ngIf="editForm.get('description').invalid && editForm.get('description').touched"><br>
-            <span *ngIf="editForm.get('description')['errors']['required']">Please enter description project</span>
+        <label for="description">
+          Description
+        </label>
+        <textarea id="description" class="form-control"
+                  [value]="description"
+                  rows="3"
+                  formControlName="description">
+        </textarea>
+        <span class="form-control-error"
+              *ngIf="editForm.get('description').invalid && editForm.get('description').touched">
+          <span
+              *ngIf="editForm.get('description')['errors']['required']">
+            Please enter description project
           </span>
+        </span>
       </div>
     </div>
   </div>
-  <div class="modal-footer">
-    <button class="btn btn-secondary" (click)="activeModal.dismiss()">Cancel</button>
-    <button class="btn btn-success"
+  <div class="modal-footer d-flex">
+    <button class="btn btn-secondary w-100"
+            (click)="activeModal.dismiss()">
+      Cancel
+    </button>
+    <button class="btn btn-success w-100"
             [disabled]="!editForm.valid">
       Submit Form
     </button>

@@ -16,11 +16,17 @@
   --btn-danger: #bb432c;
   --btn-danger-hover: #9d452e;
   --btn-secondary: #b9b9b9;
+  --btn-secondary-hover: #787878;
   /*time*/
   --translition-time: 0.3s;
 }
 body{
   background: var(--background-color)!important;
   color: var(--text-color)!important;
+}
+
+body .modal-content{
+  border-radius: 0;
+  padding: 5px;
 }
 
