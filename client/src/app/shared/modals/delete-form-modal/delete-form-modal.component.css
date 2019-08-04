@@ -26,3 +26,13 @@ button{
   background: var(--btn-success-hover);
   border-color: var(--btn-success-hover);
 }
+
+.btn-danger{
+  background: var(--btn-danger);
+  border-color: var(--btn-danger);
+}
+
+.btn-danger:hover{
+  background: var(--btn-danger-hover);
+  border-color: var(--btn-danger-hover);
+}

@@ -1,25 +1,9 @@
-button{
-  border-radius: 0;
-  font-size: 16px;
-  text-transform: uppercase;
-}
-
 .btn{
   min-width: 150px;
 }
 
 .navbar-toggler:focus{
   outline: 5px auto var(--btn-secondary);
-}
-
-.btn-primary{
-  background: var(--btn-primary);
-  border-color: var(--btn-primary) ;
-}
-
-.btn-primary:hover{
-  background: var(--btn-primary-hover);
-  border-color: var(--btn-primary-hover);
 }
 
 .navbar{
