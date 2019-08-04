@@ -1,14 +1,20 @@
-<h4>
-  Create projects:
-</h4>
-<button  class="btn btn-primary"
-         (click)="create()">
-  Create project
-</button>
-<h4>
-  List projects:
-</h4>
 <div class="container">
+  <h2 class="title">
+    My projects
+  </h2>
+  <div class="row mb-5 align-items-center">
+    <div class="col-sm-12 col-md-8 col-lg-9">
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2 w-100" type="search" placeholder="Search">
+      </form>
+    </div>
+    <div class="col-sm-12 col-md-4 col-lg-3">
+      <button  class="btn btn-success w-100"
+               (click)="create()">
+        Create project
+      </button>
+    </div>
+  </div>
   <div class="row">
     <div class="col-sm-12 col-md-6 col-lg-4"
          *ngFor="let project of projects; let index = index;" >
@@ -21,10 +27,10 @@
             {{project.description}}
           </p>
           <div class="d-flex">
-            <!--   <button  class="btn btn-success"
-                        (click)="addUsers(project)">
-                 Add users
-               </button>-->
+            <button  class="btn btn-success"
+                     (click)="addUsers(project)">
+              Add users
+            </button>
             <button  class="btn btn-primary mr-1 w-100"
                      (click)="edit(project)">
               Edit

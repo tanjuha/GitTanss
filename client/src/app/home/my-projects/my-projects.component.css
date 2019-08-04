@@ -4,6 +4,24 @@ button{
   text-transform: uppercase;
 }
 
+.title{
+  margin: 0;
+  padding: 30px 0;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.form-control{
+  border-radius: 0;
+}
+
+.form-control:focus{
+  border: 2px solid var(--btn-primary);
+  box-shadow: none;
+}
+
 .card{
   margin-bottom: 30px;
   border-radius: 0;
@@ -26,6 +44,16 @@ button{
 .card-title{
   font-size: 22px;
   font-weight: 700;
+}
+
+.btn-success{
+  background: var(--btn-success);
+  border-color: var(--btn-success);
+}
+
+.btn-success:hover{
+  background: var(--btn-success-hover);
+  border-color: var(--btn-success-hover);
 }
 
 .btn-primary{
