@@ -15,7 +15,6 @@ import {HomeRoutingModule} from './home/home-routing.module';
 
 
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
-import {UserService} from './services/user.service';
 import {ProjectService} from './services/project.service';
 import {AuthService} from './services/auth.service';
 import {CommonModule} from '@angular/common';
@@ -24,12 +23,16 @@ import {EditFormModalComponent} from './modals/edit-form-modal/edit-form-modal.c
 import {DeleteFormModalComponent} from './modals/delete-form-modal/delete-form-modal.component';
 import {CreateFormModalComponent} from './modals/create-form-modal/create-form-modal.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import {LoginComponent} from './components/login/login.component';
+import {RegistrationComponent} from './components/registration/registration.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+    RegistrationComponent,
     HomeComponent,
     EditFormModalComponent,
     DeleteFormModalComponent,
@@ -51,7 +54,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
-    UserService,
     AuthService,
     ProjectService,
     AuthGuard

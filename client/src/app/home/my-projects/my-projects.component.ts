@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ProjectService} from '../../services/project.service';
-import {UserService} from '../../services/user.service';
 import {AuthService} from '../../services/auth.service';
 import {CreateFormModalComponent} from '../../modals/create-form-modal/create-form-modal.component';
 import {EditFormModalComponent} from '../../modals/edit-form-modal/edit-form-modal.component';
@@ -20,7 +19,6 @@ export class MyProjectsComponent implements OnInit {
 
   constructor( private project: ProjectService,
                private modalService: NgbModal,
-               private userService: UserService,
                private auth: AuthService,
                private router: Router) {
   }

@@ -8,7 +8,7 @@ import {Message} from '../../models/message.model';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css', '../auth.component.css']
+  styleUrls: ['./login.component.css', '../../auth/auth.component.css']
 })
 export class LoginComponent implements OnInit {
 

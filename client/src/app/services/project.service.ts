@@ -7,11 +7,11 @@ import {environment} from '../../environments/environment';
 @Injectable()
 export class ProjectService {
 
-  private getProjectsUrl = `${environment.url}/api/projects`;
-  private  getProjectsByUserIdUrl = `${environment.url}/api/projects/user`;
-  private deleteProjectUrl = `${environment.url}/api/projects`;
-  private createProjectUrl = `${environment.url}/api/project`;
-  private  updateProjectUrl = `${environment.url}/api/projects`;
+  private getProjectsUrl = `${environment.url}/projects`;
+  private  getProjectsByUserIdUrl = `${environment.url}/projects/user`;
+  private deleteProjectUrl = `${environment.url}/projects`;
+  private createProjectUrl = `${environment.url}/project`;
+  private  updateProjectUrl = `${environment.url}/projects`;
 
   constructor(private http: HttpClient, private auth: AuthService) {}
 

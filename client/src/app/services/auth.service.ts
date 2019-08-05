@@ -11,8 +11,8 @@ import {environment} from '../../environments/environment';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-  private registerUrl = `${environment.url}/api/registration`;
-  private loginUrl = `${environment.url}/api/authenticate`;
+  private registerUrl = `${environment.url}/registration`;
+  private loginUrl = `${environment.url}/authenticate`;
 
 
   constructor(private http: HttpClient, private router: Router) {
