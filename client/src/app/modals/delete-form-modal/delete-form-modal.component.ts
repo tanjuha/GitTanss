@@ -10,7 +10,7 @@ export class DeleteFormModalComponent implements OnInit {
 
   constructor(public activeModal: NgbActiveModal) { }
 
-  @Input() name_project;
+  @Input() title;
 
   ngOnInit() {
   }

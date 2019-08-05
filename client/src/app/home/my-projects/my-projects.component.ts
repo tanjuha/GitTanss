@@ -48,14 +48,14 @@ export class MyProjectsComponent implements OnInit {
     });
   }
 
-  edit(project) {
+  edit(project, index) {
     const modalRef = this.modalService.open(EditFormModalComponent);
     modalRef.componentInstance.myProject = {};
-    modalRef.componentInstance.name_project = project.title;
+    modalRef.componentInstance.title = project.title;
     modalRef.componentInstance.description = project.description;
     modalRef.result.then((result) => {
-      this.project.edit(result.title, result.description).subscribe(res => {
-          console.log('successfully edit project');
+      this.project.edit(index, result.title, result.description).subscribe(res => {
+          console.log('successfully edit project' + project);
         },
         err => {
           console.log(err);
@@ -69,13 +69,12 @@ export class MyProjectsComponent implements OnInit {
 
   delete(project, index) {
     const modalRef = this.modalService.open(DeleteFormModalComponent);
-    modalRef.componentInstance.name_project = project.name_project;
-    modalRef.result.then((result) => {
+    modalRef.componentInstance.title = project.title;
+    modalRef.result.then(() => {
       this.project.deleteProject(project.id).subscribe((data: any) => {
         this.projects = data;
       });
       this.projects.splice(index, 1);
-      console.log(`delete project - ${result} , - id = ${project.id}`);
     }).catch((error) => {
       console.log(`error delete project - ${error}`);
     });

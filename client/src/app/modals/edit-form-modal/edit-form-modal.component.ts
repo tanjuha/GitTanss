@@ -11,7 +11,7 @@ import {ProjectService} from '../../services/project.service';
 export class EditFormModalComponent implements OnInit {
 
   @Input()
-  name_project;
+  title;
   description;
   myProject: any;
   editForm: FormGroup;
@@ -26,7 +26,7 @@ export class EditFormModalComponent implements OnInit {
 
   ngOnInit() {
     this.editForm = new FormGroup({
-      'name_project': new FormControl(null, [Validators.required]),
+      'title': new FormControl(null, [Validators.required]),
       'description': new FormControl(null, [Validators.required]),
     });
   }
@@ -36,7 +36,7 @@ export class EditFormModalComponent implements OnInit {
 
   private createForms() {
     this.editForm = this.formBuilder.group({
-      name_project: '',
+      title: '',
       description: '',
     });
   }

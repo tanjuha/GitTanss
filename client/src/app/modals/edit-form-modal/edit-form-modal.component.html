@@ -12,16 +12,16 @@
   <div class="modal-boy">
     <div class="container">
       <div class="form-group">
-        <label for="name_project">
+        <label for="title">
           Name project
         </label>
-        <input id="name_project" class="form-control" type="text"
-               [value]="name_project"
-               formControlName="name_project" />
+        <input id="title" class="form-control" type="text"
+               [value]="title"
+               formControlName="title" />
         <span class="form-control-error"
-              *ngIf="editForm.get('name_project').invalid && editForm.get('name_project').touched">
+              *ngIf="editForm.get('title').invalid && editForm.get('title').touched">
         <span
-          *ngIf="editForm.get('name_project')['errors']['required']">
+          *ngIf="editForm.get('title')['errors']['required']">
           Please enter name project
         </span>
       </span>
