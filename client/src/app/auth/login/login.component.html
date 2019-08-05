@@ -13,11 +13,11 @@
         Username
       </label>
       <input type="text" class="form-control" id="username" aria-describedby="emailHelp"
-             placeholder="Enter username" formControlName="username">
+             placeholder="Enter username" formControlName="usernameOrEmail">
       <span class="form-control-error"
-            *ngIf="formLogin.get('username').invalid && formLogin.get('username').touched">
+            *ngIf="formLogin.get('usernameOrEmail').invalid && formLogin.get('usernameOrEmail').touched">
         <span
-          *ngIf="formLogin.get('username')['errors']['required']">
+          *ngIf="formLogin.get('usernameOrEmail')['errors']['required']">
           Please enter username
         </span>
       </span>

@@ -13,14 +13,23 @@ export class EditFormModalComponent implements OnInit {
   @Input()
   name_project;
   description;
-
+  myProject: any;
   editForm: FormGroup;
 
   constructor(
     public activeModal: NgbActiveModal,
     public project: ProjectService,
     public formBuilder: FormBuilder
-  ) { }
+  ) {
+    this.createForms();
+  }
+
+  ngOnInit() {
+    this.editForm = new FormGroup({
+      'name_project': new FormControl(null, [Validators.required]),
+      'description': new FormControl(null, [Validators.required]),
+    });
+  }
 
 
   get form() { return this.editForm.controls; }
@@ -35,25 +44,4 @@ export class EditFormModalComponent implements OnInit {
   private submitForm() {
     this.activeModal.close(this.editForm.value);
   }
-
-/*  submitForm() {
-    console.log('edit form work');
-      const formData = this.editForm.value;
-      this.project.update(formData, this.id).subscribe(res => {
-          console.log('successfully update user');
-        },
-        err => {
-          console.log(err);
-        }
-      );
-      console.log('update project');
-  }*/
-
-  ngOnInit() {
-    this.editForm = new FormGroup({
-      'name_project': new FormControl(null, [Validators.required]),
-      'description': new FormControl(null, [Validators.required]),
-    });
-  }
-
 }

@@ -6,6 +6,7 @@ import {AuthService} from '../../services/auth.service';
 import {CreateFormModalComponent} from '../../modals/create-form-modal/create-form-modal.component';
 import {EditFormModalComponent} from '../../modals/edit-form-modal/edit-form-modal.component';
 import {DeleteFormModalComponent} from '../../modals/delete-form-modal/delete-form-modal.component';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class MyProjectsComponent implements OnInit {
   constructor( private project: ProjectService,
                private modalService: NgbModal,
                private userService: UserService,
-               private auth: AuthService) {
+               private auth: AuthService,
+               private router: Router) {
   }
 
   ngOnInit() {
@@ -32,9 +34,9 @@ export class MyProjectsComponent implements OnInit {
     const modalRef = this.modalService.open(CreateFormModalComponent);
     modalRef.componentInstance.myProject = {};
     modalRef.result.then((result) => {
-      this.projects.unshift(result);
-      this.project.create(result.name_project, result.description, this.auth.currentUser.id).subscribe(res => {
-          console.log( 'create user = ' + res);
+      this.project.create(this.auth.currentUser.userid, result.title, result.description).subscribe(res => {
+          console.log( 'create user = ' + this.auth.currentUser.userid);
+           this.projects.unshift(res);
         },
         err => {
           console.log( ' err create user = ' + err);
@@ -48,12 +50,11 @@ export class MyProjectsComponent implements OnInit {
 
   edit(project) {
     const modalRef = this.modalService.open(EditFormModalComponent);
-    modalRef.componentInstance.name_project = project.name_project;
+    modalRef.componentInstance.myProject = {};
+    modalRef.componentInstance.name_project = project.title;
     modalRef.componentInstance.description = project.description;
     modalRef.result.then((result) => {
-      project.description = result.description;
-      project.name_project = result.name_project;
-      this.project.edit(result.name_project, result.description, project.id).subscribe(res => {
+      this.project.edit(result.title, result.description).subscribe(res => {
           console.log('successfully edit project');
         },
         err => {

@@ -15,11 +15,11 @@
         <label for="name_project">
           Name project
         </label>
-        <input id="name_project" type="text" class="form-control" formControlName="name_project" />
+        <input id="name_project" type="text" class="form-control" formControlName="title" />
         <span class="form-control-error"
-              *ngIf="myCreateForm.get('name_project').invalid && myCreateForm.get('name_project').touched">
+              *ngIf="myCreateForm.get('title').invalid && myCreateForm.get('title').touched">
         <span
-          *ngIf="myCreateForm.get('name_project')['errors']['required']">
+          *ngIf="myCreateForm.get('title')['errors']['required']">
           Please enter name project
         </span>
       </span>

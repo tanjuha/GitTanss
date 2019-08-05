@@ -8,10 +8,10 @@ import {environment} from '../../environments/environment';
 export class ProjectService {
 
   private getProjectsUrl = `${environment.url}/projects`;
-  private  getProjectsByUserIdUrl = `${environment.url}/projects`;
-  private deleteProjectUrl = `${environment.url}/project`;
-  private createProjectUrl = `${environment.url}/project`;
-  private  updateProjectUrl = `${environment.url}/project/edit`;
+  private  getProjectsByUserIdUrl = `${environment.url}/api/projects/user`;
+  private deleteProjectUrl = `${environment.url}/api/projects`;
+  private createProjectUrl = `${environment.url}/api/project`;
+  private  updateProjectUrl = `${environment.url}/api/projects`;
 
   constructor(private http: HttpClient, private auth: AuthService) {}
 
@@ -20,7 +20,7 @@ export class ProjectService {
   }
 
   getProjectsByUserId () {
-    const  projects  = this.auth.currentUser.id;
+    const  projects  = this.auth.currentUser.userid;
       return this.http.get(`${this.getProjectsByUserIdUrl}/${projects}`);
   }
 
@@ -28,11 +28,11 @@ export class ProjectService {
     return this.http.delete(`${this.deleteProjectUrl}/${id}`);
   }
 
-  create(name_project, description, user_id) {
-    return this.http.post(this.createProjectUrl, {name_project,  description, user_id});
+  create(userId, title, description, ) {
+    return this.http.post(this.createProjectUrl, {userId, title, description});
   }
 
-  edit(name_project, description, id: Project) {
-    return this.http.put(`${this.updateProjectUrl}/${id}`, {name_project,  description, id});
+  edit(title, description) {
+    return this.http.put(this.updateProjectUrl, {title,  description});
   }
 }

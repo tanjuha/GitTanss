@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         }
     });
     this.formLogin = new FormGroup({
-      'username': new FormControl(null, [Validators.required]),
+      'usernameOrEmail': new FormControl(null, [Validators.required]),
       'password': new FormControl(null, [Validators.required])
     });
 
@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     const formData = this.formLogin.value;
+    console.log(formData);
     this.auth.loginUser(formData).subscribe(
       res => {
         localStorage.setItem('token', res.token);

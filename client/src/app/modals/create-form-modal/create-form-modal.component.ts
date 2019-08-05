@@ -27,7 +27,7 @@ export class CreateFormModalComponent implements OnInit {
 
   ngOnInit() {
     this.myCreateForm = new FormGroup({
-      'name_project': new FormControl(null, [Validators.required]),
+      'title': new FormControl(null, [Validators.required]),
       'description': new FormControl(null, [Validators.required]),
     });
 
@@ -37,7 +37,7 @@ export class CreateFormModalComponent implements OnInit {
 
   private createForms() {
     this.myCreateForm = this.formBuilder.group({
-      name_project: '',
+      title: '',
       description: '',
     });
   }

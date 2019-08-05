@@ -28,13 +28,14 @@ export class RegistrationComponent implements OnInit {
     this.auth.registrationUser(formData).subscribe(
       res => {
         console.log('successfully create user');
-      },
-      err => {
         this.router.navigate(['/login'], {
           queryParams: {
             nowYouCanLogin: true
           }
         });
+      },
+      err => {
+        console.log(err);
       }
 
   );

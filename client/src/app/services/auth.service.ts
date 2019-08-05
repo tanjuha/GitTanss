@@ -11,8 +11,8 @@ import {environment} from '../../environments/environment';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-  private registerUrl = `${environment.url}/auth/registration`;
-  private loginUrl = `${environment.url}/auth/login`;
+  private registerUrl = `${environment.url}/api/registration`;
+  private loginUrl = `${environment.url}/api/authenticate`;
 
 
   constructor(private http: HttpClient, private router: Router) {
@@ -32,10 +32,8 @@ export class AuthService {
 
   loginUser(user: User): Observable<any> {
     return this.http.post<any>(this.loginUrl, user).pipe(map(data => {
+      console.log(data);
       return {
-        id: data['user'].id,
-        username: data['user'].username,
-        password: data['user'].password,
         token: data['token']
       };
     }));
