@@ -3,10 +3,6 @@
 </h2>
 <div class="container">
   <div class="row">
-    <div class="alert-info"
-         *ngIf="!projects.length">
-      Empty list projects
-    </div>
     <div class="col-12 mb-5">
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control w-100" type="search"
@@ -15,8 +11,20 @@
                [(ngModel)]="searchValue">
       </form>
     </div>
+    <div class="alert-info"
+         *ngIf="!projects.length">
+      Empty list projects
+    </div>
+    <ng-container
+      *ngIf="( projects | filter : searchValue) as result">
+      <div
+        class="alert-info"
+        *ngIf="result.length === 0">
+        No Result
+      </div>
+    </ng-container>
     <div class="col-sm-12 col-md-6 col-lg-4"
-         *ngFor="let project of projects | filter:searchValue;" >
+         *ngFor="let project of  projects | filter:searchValue;" >
       <div class="card">
         <div class="card-body d-flex flex-column justify-content-between">
           <h5 class="card-title">

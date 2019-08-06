@@ -23,6 +23,13 @@
          *ngIf="!projects.length">
         Empty list projects
     </div>
+    <ng-container *ngIf="( projects | filter : searchValue) as result">
+      <div
+        class="alert-info"
+        *ngIf="result.length === 0">
+        No Result
+      </div>
+    </ng-container>
     <div class="col-sm-12 col-md-6 col-lg-4"
          *ngFor="let project of projects | filter:searchValue; let index = index;" >
       <div class="card">

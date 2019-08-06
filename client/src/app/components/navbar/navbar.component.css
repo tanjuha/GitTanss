@@ -1,3 +1,11 @@
+.hiddenNav{
+  display: none!important;
+}
+
+.show{
+  display: block;
+}
+
 .btn{
   min-width: 150px;
 }
