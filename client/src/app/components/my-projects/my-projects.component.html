@@ -11,7 +11,10 @@
     </div>
     <div class="col-sm-12 col-md-8 col-lg-9">
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control w-100" type="search" placeholder="Search...">
+        <input class="form-control w-100" type="search"
+               placeholder="Search..."
+               name="search"
+               [(ngModel)]="searchValue">
       </form>
     </div>
   </div>
@@ -21,7 +24,7 @@
         Empty list projects
     </div>
     <div class="col-sm-12 col-md-6 col-lg-4"
-         *ngFor="let project of projects; let index = index;" >
+         *ngFor="let project of projects | filter:searchValue; let index = index;" >
       <div class="card">
         <div class="card-body d-flex flex-column justify-content-between">
           <h5 class="card-title" >

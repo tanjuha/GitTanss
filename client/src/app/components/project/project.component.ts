@@ -3,7 +3,7 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 import {ProjectService} from '../../services/project.service';
 import {AuthService} from '../../services/auth.service';
-import {EditFormModalComponent} from '../../modals/edit-form-modal/edit-form-modal.component';
+import {CreateUpdateFormModalComponent} from '../../modals/create-update-form-modal/create-update-form-modal.component';
 
 
 @Component({
@@ -29,7 +29,8 @@ export class ProjectComponent implements OnInit {
   }
 
   edit(project) {
-    const modalRef = this.modalService.open(EditFormModalComponent);
+    const modalRef = this.modalService.open(CreateUpdateFormModalComponent);
+    modalRef.componentInstance.titleModal = 'Edit project';
     modalRef.componentInstance.title = project.title;
     modalRef.componentInstance.description = project.description;
     modalRef.result.then((result) => {
