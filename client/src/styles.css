@@ -23,9 +23,10 @@
   /*time*/
   --translition-time: 0.3s;
 }
-body{
-  background: var(--background-color)!important;
-  color: var(--text-color)!important;
+html body{
+  font-family: 'Lato', sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
 }
 
 body .modal-content{
