@@ -1,7 +1,7 @@
-			server
-1. npm install
-2. npm start
+		Folder client
+		
+1. branch new-client;
 
-			client
-1. ng serve -o
-	
+2.npm --install;
+
+3.ng serve -o;	
