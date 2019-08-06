@@ -1,9 +1,3 @@
-button{
-  border-radius: 0;
-  font-size: 16px;
-  text-transform: uppercase;
-}
-
 .title{
   margin: 0;
   padding: 30px 0;
@@ -35,26 +29,6 @@ button{
 .card-title{
   font-size: 22px;
   font-weight: 700;
-}
-
-.btn-primary{
-  background: var(--btn-primary);
-  border-color: var(--btn-primary);
-}
-
-.btn-primary:hover{
-  background: var(--btn-primary-hover);
-  border-color: var(--btn-primary-hover);
-}
-
-.btn-danger{
-  background: var(--btn-danger);
-  border-color: var(--btn-danger);
-}
-
-.btn-danger:hover{
-  background: var(--btn-danger-hover);
-  border-color: var(--btn-danger-hover);
 }
 
 @media (max-width: 576px){

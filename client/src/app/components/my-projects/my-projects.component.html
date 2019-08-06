@@ -3,19 +3,23 @@
     My projects
   </h2>
   <div class="row mb-5 align-items-center">
-    <div class="col-sm-12 col-md-8 col-lg-9">
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2 w-100" type="search" placeholder="Search">
-      </form>
-    </div>
     <div class="col-sm-12 col-md-4 col-lg-3">
-      <button  class="btn btn-success w-100"
+      <button  class="btn btn-success w-100 mb-s-3"
                (click)="create()">
         Create project
       </button>
     </div>
+    <div class="col-sm-12 col-md-8 col-lg-9">
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control w-100" type="search" placeholder="Search...">
+      </form>
+    </div>
   </div>
   <div class="row">
+    <div class="alert-info"
+         *ngIf="!projects.length">
+        Empty list projects
+    </div>
     <div class="col-sm-12 col-md-6 col-lg-4"
          *ngFor="let project of projects; let index = index;" >
       <div class="card">
@@ -28,7 +32,7 @@
           </p>
           <div class="d-flex">
             <button  class="btn btn-primary mr-1 w-100"
-                     (click)="edit(project, index)">
+                     (click)="edit(project)">
               Edit
             </button>
             <button class="btn btn-danger ml-1 w-100"

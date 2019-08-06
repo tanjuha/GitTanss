@@ -1,0 +1,40 @@
+.title{
+  margin: 0;
+  padding: 30px 0;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.card{
+  margin-bottom: 30px;
+  border-radius: 0;
+  -webkit-box-shadow: 0 2px 5px var(--box-shadow);
+  box-shadow: 0 2px 5px var(--box-shadow);
+  -webkit-transition: all var(--translition-time);
+  -o-transition: all var(--translition-time);
+  transition: all var(--translition-time);
+}
+
+.card:hover {
+  -webkit-box-shadow: 0 14px 28px var(--box-shadow-darck );
+  box-shadow: 0 14px 28px var(--box-shadow-darck );
+}
+
+.card-body{
+  min-height: 300px;
+}
+
+.card-title{
+  font-size: 22px;
+  font-weight: 700;
+}
+
+@media (max-width: 576px){
+  .card{
+    min-width: auto;
+    margin-bottom: 15px;
+  }
+}
+

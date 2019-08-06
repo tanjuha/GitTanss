@@ -15,10 +15,6 @@
   background: var(--primary-color);
 }
 
-.navbar-toggler{
-  border-radius: 0;
-}
-
 .navbar-brand{
   font-weight: 700;
 }

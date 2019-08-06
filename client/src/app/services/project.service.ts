@@ -1,10 +1,13 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Project} from '../models/project.model';
+
+import {Project} from '../../models/project.model';
 import {AuthService} from './auth.service';
 import {environment} from '../../environments/environment';
 
+
 @Injectable()
+
 export class ProjectService {
 
   private getProjectsUrl = `${environment.url}/projects`;
@@ -13,7 +16,8 @@ export class ProjectService {
   private createProjectUrl = `${environment.url}/project`;
   private  updateProjectUrl = `${environment.url}/projects`;
 
-  constructor(private http: HttpClient, private auth: AuthService) {}
+  constructor(private http: HttpClient,
+              private auth: AuthService) {}
 
   getProjects() {
      return this.http.get(this.getProjectsUrl);

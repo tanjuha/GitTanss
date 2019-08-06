@@ -4,7 +4,7 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-delete-form-modal',
   templateUrl: './delete-form-modal.component.html',
-  styleUrls: ['./delete-form-modal.component.css']
+  styleUrls: ['./delete-form-modal.component.css', '../../../shared/app-style.css']
 })
 export class DeleteFormModalComponent implements OnInit {
 

@@ -6,7 +6,7 @@ import {ProjectService} from '../../services/project.service';
 @Component({
   selector: 'app-edit-form-modal',
   templateUrl: './edit-form-modal.component.html',
-  styleUrls: ['./edit-form-modal.component.css']
+  styleUrls: ['./edit-form-modal.component.css', '../../../shared/app-style.css']
 })
 export class EditFormModalComponent implements OnInit {
 

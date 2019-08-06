@@ -3,21 +3,14 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {CommonModule} from '@angular/common';
 
 import { AppComponent } from './app.component';
-import {AuthModule} from './auth/auth.module';
 import {AppRoutingModule} from './app-routing.module';
-import {HomeComponent} from './home/home.component';
-
 import {AuthGuard} from './guards/auth.guard';
-import {HomeModule} from './home/home.module';
-import {HomeRoutingModule} from './home/home-routing.module';
-
-
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import {ProjectService} from './services/project.service';
 import {AuthService} from './services/auth.service';
-import {CommonModule} from '@angular/common';
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 import {EditFormModalComponent} from './modals/edit-form-modal/edit-form-modal.component';
 import {DeleteFormModalComponent} from './modals/delete-form-modal/delete-form-modal.component';
@@ -25,7 +18,8 @@ import {CreateFormModalComponent} from './modals/create-form-modal/create-form-m
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegistrationComponent} from './components/registration/registration.component';
-
+import {MyProjectsComponent} from './components/my-projects/my-projects.component';
+import {ProjectComponent} from './components/project/project.component';
 
 
 @NgModule({
@@ -33,24 +27,22 @@ import {RegistrationComponent} from './components/registration/registration.comp
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    HomeComponent,
     EditFormModalComponent,
     DeleteFormModalComponent,
     CreateFormModalComponent,
-    NavbarComponent
+    NavbarComponent,
+    MyProjectsComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    AuthModule,
     AppRoutingModule,
     CommonModule,
-    HomeModule,
-    HomeRoutingModule,
-    NgbModule.forRoot(),
     AngularFontAwesomeModule,
+    NgbModule.forRoot(),
     NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
@@ -65,4 +57,5 @@ import {RegistrationComponent} from './components/registration/registration.comp
   ],
   bootstrap: [AppComponent],
 })
+
 export class AppModule { }

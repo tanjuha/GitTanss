@@ -8,7 +8,7 @@ import {AuthService} from '../../services/auth.service';
 @Component({
   selector: 'app-create-form-modal',
   templateUrl: './create-form-modal.component.html',
-  styleUrls: ['./create-form-modal.component.css']
+  styleUrls: ['./create-form-modal.component.css', '../../../shared/app-style.css']
 })
 export class CreateFormModalComponent implements OnInit {
 

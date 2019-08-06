@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+
 import {ProjectService} from '../../services/project.service';
 import {AuthService} from '../../services/auth.service';
 import {EditFormModalComponent} from '../../modals/edit-form-modal/edit-form-modal.component';
 
 
-
-
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
-  styleUrls: ['./project.component.css']
+  styleUrls: [
+    './project.component.css',
+    '../../../shared/app-style.css'
+  ]
 })
+
 export class ProjectComponent implements OnInit {
 
-  projects: any ;
+  projects:  any = [];
 
   constructor( private project: ProjectService,
                private modalService: NgbModal,
@@ -31,14 +34,15 @@ export class ProjectComponent implements OnInit {
     modalRef.result.then((result) => {
       project.description = result.description;
       project.title = result.title;
-      this.project.edit(project.id, result.title, result.description).subscribe(res => {
-          console.log('successfully edit project');
+      this.project.edit(project.id, result.title, result.description)
+        .subscribe(res => {
+          console.log('Message-alert successfully edit project');
         },
         err => {
           console.log(err);
         }
       );
-      console.log('edit project');
+      console.log('Message-alert edit project');
     }).catch((error) => {
       console.log(error);
     });

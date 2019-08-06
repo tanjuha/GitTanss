@@ -1,0 +1,75 @@
+a{
+  color: var(--btn-primary);
+}
+
+label{
+  margin-bottom: 0;
+}
+
+button{
+  border-radius: 0;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.alert-info{
+  width: 100%;
+  text-align: center;
+  background: inherit;
+}
+
+.btn-secondary{
+  background: var(--btn-secondary);
+  border-color: var(--btn-secondary);
+}
+
+.btn-secondary:hover{
+  background: var(--btn-secondary-hover);
+  border-color: var(--btn-secondary-hover);
+}
+
+.btn-success{
+  background: var(--btn-success);
+  border-color: var(--btn-success);
+}
+
+.btn-success:hover{
+  background: var(--btn-success-hover);
+  border-color: var(--btn-success-hover);
+}
+
+.btn-primary{
+  background: var(--btn-primary);
+  border-color: var(--btn-primary);
+}
+
+.btn-primary:hover{
+  background: var(--btn-primary-hover);
+  border-color: var(--btn-primary-hover);
+}
+
+.btn-danger{
+  background: var(--btn-danger);
+  border-color: var(--btn-danger);
+}
+
+.btn-danger:hover{
+  background: var(--btn-danger-hover);
+  border-color: var(--btn-danger-hover);
+}
+
+.form-control,
+.navbar-toggler{
+  border-radius: 0;
+}
+
+.form-control:focus{
+  border: 2px solid var(--btn-primary);
+  box-shadow: none;
+}
+
+@media (max-width: 768px){
+  .mb-s-3{
+    margin-bottom: 25px;
+  }
+}
