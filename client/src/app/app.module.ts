@@ -20,6 +20,8 @@ import {LoginComponent} from './components/login/login.component';
 import {RegistrationComponent} from './components/registration/registration.component';
 import {MyProjectsComponent} from './components/my-projects/my-projects.component';
 import {ProjectComponent} from './components/project/project.component';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+
 
 
 @NgModule({
@@ -43,7 +45,8 @@ import {ProjectComponent} from './components/project/project.component';
     CommonModule,
     AngularFontAwesomeModule,
     NgbModule.forRoot(),
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    Ng2SearchPipeModule
   ],
   providers: [
     AuthService,

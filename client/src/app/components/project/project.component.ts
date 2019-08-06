@@ -18,6 +18,7 @@ import {EditFormModalComponent} from '../../modals/edit-form-modal/edit-form-mod
 export class ProjectComponent implements OnInit {
 
   projects:  any = [];
+  searchValue: string;
 
   constructor( private project: ProjectService,
                private modalService: NgbModal,

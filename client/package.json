@@ -29,6 +29,7 @@
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
     "ng-multiselect-dropdown": "^0.2.3",
+    "ng2-search-filter": "^0.5.1",
     "rxjs": "6.0.0",
     "rxjs-compat": "6.0.0",
     "zone.js": "^0.8.26"

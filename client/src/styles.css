@@ -8,6 +8,9 @@
   --text-color-light: #5d5c5d;
   --box-shadow: #b9b9b9;
   --box-shadow-darck: #8c8c8c ;
+  /*general color*/
+  --primary-gray: #cecece;
+  --primary-gray-light: #8c8c8c;
   /*button*/
   --btn-primary: #3c7ebb;
   --btn-primary-hover: #3B69A5;
@@ -30,3 +33,11 @@ body .modal-content{
   padding: 5px;
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+  background: var(--primary-gray);
+}
+
+::-webkit-scrollbar-thumb{
+  background: var(--primary-gray-light);
+}
