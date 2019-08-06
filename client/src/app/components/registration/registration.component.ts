@@ -11,11 +11,14 @@ import {AuthService} from '../../services/auth.service';
 })
 export class RegistrationComponent implements OnInit {
 
+  logoUrl: string;
   formRegistration: FormGroup;
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
+    this.logoUrl = '../../assets/images/logo.png';
     this.formRegistration = new FormGroup({
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'username': new FormControl(null, [Validators.required]),

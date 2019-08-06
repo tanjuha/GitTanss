@@ -10,8 +10,7 @@
       GitTanss
     </span>
   </a>
-  <div class="collapse navbar-collapse"
-       [ngClass]="authStatus ? 'show' : 'hiddenNav'">
+  <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
         <a class="nav-link" routerLink="/my-projects">
@@ -35,5 +34,5 @@
     </div>
   </div>
 </nav>
-
+<router-outlet></router-outlet>
 

@@ -17,6 +17,8 @@ import {Message} from '../../../models/message.model';
 
 export class LoginComponent implements OnInit {
 
+  logoUrl: string;
+
   constructor( private router: Router,
                private route: ActivatedRoute,
                private auth: AuthService) { }
@@ -25,6 +27,7 @@ export class LoginComponent implements OnInit {
   message: Message;
 
   ngOnInit() {
+    this.logoUrl = '../../assets/images/logo.png';
     this.message = new Message('danger', '');
     this.route.queryParams
       .subscribe((params: Params) => {

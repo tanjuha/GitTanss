@@ -6,14 +6,19 @@ import {LoginComponent} from './components/login/login.component';
 import {RegistrationComponent} from './components/registration/registration.component';
 import {MyProjectsComponent} from './components/my-projects/my-projects.component';
 import {ProjectComponent} from './components/project/project.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
 
+
+const homeRoutes: Routes = [
+  { path: 'my-projects', component: MyProjectsComponent},
+  { path: 'projects', component: ProjectComponent},
+];
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
-  {path: 'my-projects', component: MyProjectsComponent, canActivate: [AuthGuard]},
-  {path: 'projects', component: ProjectComponent, canActivate: [AuthGuard]}
+  {path: '', component: NavbarComponent, children: homeRoutes},
 ];
 
 @NgModule({

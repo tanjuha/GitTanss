@@ -2,9 +2,12 @@
   <div class="row justify-content-center">
     <div class="col-sm-6 col-md-4 col-lg-4">
       <div class="form-container">
-        <h2 class="auth-title">
-          Register
-        </h2>
+        <div class="auth-title">
+          <img src="{{logoUrl}}" alt="logo" title="GitTans">
+          <h2>
+            Register
+          </h2>
+        </div>
         <form [formGroup]="formRegistration"
               (submit)= "registration()">
           <div class="form-group">

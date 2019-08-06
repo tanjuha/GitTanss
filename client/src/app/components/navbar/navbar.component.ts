@@ -3,7 +3,6 @@ import {Router} from '@angular/router';
 
 import {User} from '../../../models/user.model';
 import {AuthService} from '../../services/auth.service';
-import {BehaviorSubject} from 'rxjs';
 
 
 @Component({
@@ -20,16 +19,10 @@ export class NavbarComponent implements OnInit {
 
   currentUser: User;
   toggleNavbar: boolean;
-  authStatus: boolean;
   logoUrl: string;
 
   constructor( private router: Router,
-               private auth: AuthService) {
-
-    if (this.auth.logIn()) {
-      this.authStatus = true;
-    }
-  }
+               private auth: AuthService) {}
 
   ngOnInit() {
     this.router.navigate(['/my-projects']);
