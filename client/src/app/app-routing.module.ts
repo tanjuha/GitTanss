@@ -7,6 +7,7 @@ import {RegistrationComponent} from './components/registration/registration.comp
 import {MyProjectsComponent} from './components/my-projects/my-projects.component';
 import {ProjectComponent} from './components/project/project.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
+import {NotFoundComponent} from './components/not-found/not-found.component';
 
 
 const homeRoutes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
-  {path: '', component: NavbarComponent, children: homeRoutes},
+  {path: '', component: NavbarComponent, children: homeRoutes, canActivate: [AuthGuard]},
+  {path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({

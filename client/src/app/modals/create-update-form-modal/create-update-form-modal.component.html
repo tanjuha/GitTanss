@@ -15,17 +15,35 @@
         <label for="title">
           {{titleCard}}
         </label>
-        <input id="title" class="form-control" type="text"
-               placeholder = "Title project"
-               [value]="title"
-               formControlName="title" />
-        <span class="form-control-error"
-              *ngIf="myForm.get('title').invalid && myForm.get('title').touched">
-        <span
-          *ngIf="myForm.get('title')['errors']['required']">
-          Please enter name project
+        <span *ngIf="!statusTitle; else editTitle">
+          <input id="title" class="form-control" type="text"
+                 placeholder = "Title project"
+                 [value]="title"
+                 formControlName="title" />
+           <span class="form-control-error"
+                 *ngIf="myForm.get('title').invalid && myForm.get('title').touched">
+              <span
+                *ngIf="myForm.get('title')['errors']['required']">
+                Please enter name project
+              </span>
+              <span *ngIf="myForm.get('title')['errors']['minlength']">
+                Name project must be at least
+                {{myForm.get('title')['errors']['minlength']['requiredLength']}}
+                characters
+              </span>
+              <span *ngIf="myForm.get('title')['errors']['maxlength']">
+                Name project be at less
+                {{myForm.get('title')['errors']['maxlength']['requiredLength']}}
+                characters
+              </span>
+            </span>
         </span>
-      </span>
+        <ng-template #editTitle>
+          <input id="title" class="form-control" type="text"
+                 placeholder = "Title project"
+                 [value]="title"
+                 disabled />
+        </ng-template>
       </div>
       <div class="form-group">
         <label for="description">
@@ -34,7 +52,7 @@
         <textarea id="description" class="form-control"
                   placeholder = "Description project"
                   [value]="description"
-                  rows="3"
+                  rows="{{rowDescription}}"
                   formControlName="description">
         </textarea>
         <span class="form-control-error"
@@ -52,9 +70,14 @@
             (click)="activeModal.dismiss()">
       Cancel
     </button>
-    <button class="btn btn-success w-100"
-            [disabled]="!myForm.valid">
-      Submit Form
+    <button *ngIf="statusTitle else editButton" class="btn btn-success w-100">
+        Submit Form
     </button>
+    <ng-template #editButton>
+      <button class="btn btn-success w-100"
+              [disabled]="!myForm.valid">
+        Submit Form
+      </button>
+    </ng-template>
   </div>
 </form>

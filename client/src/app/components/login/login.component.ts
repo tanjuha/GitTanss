@@ -18,13 +18,12 @@ import {Message} from '../../../models/message.model';
 export class LoginComponent implements OnInit {
 
   logoUrl: string;
+  formLogin: FormGroup;
+  message: Message;
 
   constructor( private router: Router,
                private route: ActivatedRoute,
                private auth: AuthService) { }
-
-  formLogin: FormGroup;
-  message: Message;
 
   ngOnInit() {
     this.logoUrl = '../../assets/images/logo.png';

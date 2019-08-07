@@ -1,0 +1,11 @@
+.not-found{
+  margin-top: 20vh;
+  text-align: center;
+}
+
+.not-found span{
+  font-size: 140px;
+  font-weight: 700;
+  letter-spacing: 25px;
+}
+

@@ -18,7 +18,9 @@ export class CreateUpdateFormModalComponent implements OnInit {
   titleModal;
   description;
   myProject: any;
+  rowDescription: number;
   myForm: FormGroup;
+  statusTitle: boolean;
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -35,8 +37,14 @@ export class CreateUpdateFormModalComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = new FormGroup({
-      'title': new FormControl(null, [Validators.required]),
-      'description': new FormControl(null, [Validators.required]),
+      'title': new FormControl(null, [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(20)
+      ]),
+      'description': new FormControl(null, [
+        Validators.required,
+      ]),
     });
   }
 

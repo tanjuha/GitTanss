@@ -3,6 +3,12 @@
     My projects
   </h2>
   <div class="row mb-5 align-items-center">
+    <div class="col-12 mb-3">
+      <div class="alert alert-{{message.type}}"
+           *ngIf="message.text">
+        {{message.text}}
+      </div>
+    </div>
     <div class="col-sm-12 col-md-4 col-lg-3">
       <button  class="btn btn-success w-100 mb-s-3"
                (click)="create()">
@@ -19,15 +25,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="alert-info"
-         *ngIf="!projects.length">
-        Empty list projects
-    </div>
     <ng-container *ngIf="( projects | filter : searchValue) as result">
       <div
         class="alert-info"
         *ngIf="result.length === 0">
-        No Result
+        Empty list projects
       </div>
     </ng-container>
     <div class="col-sm-12 col-md-6 col-lg-4"

@@ -20,6 +20,7 @@ import {RegistrationComponent} from './components/registration/registration.comp
 import {MyProjectsComponent} from './components/my-projects/my-projects.component';
 import {ProjectComponent} from './components/project/project.component';
 import { CreateUpdateFormModalComponent } from './modals/create-update-form-modal/create-update-form-modal.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { CreateUpdateFormModalComponent } from './modals/create-update-form-moda
     NavbarComponent,
     MyProjectsComponent,
     ProjectComponent,
-    CreateUpdateFormModalComponent
+    CreateUpdateFormModalComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

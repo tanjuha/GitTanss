@@ -10,7 +10,7 @@
 }
 
 .form-container{
-  margin-top: 25px;
+  margin-top: 35px;
   padding: 25px;
   background: var(--primary-color);
   -webkit-box-shadow: 0 4px 10px 4px var(--box-shadow);
@@ -26,12 +26,6 @@
   position: absolute;
   font-size: 14px;
   color: var(--btn-danger);
-}
-
-.alert {
-  margin-bottom: 30px;
-  border-radius: 0;
-  font-size: 14px;
 }
 
 @media (max-width: 576px){

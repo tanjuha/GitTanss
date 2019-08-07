@@ -27,25 +27,23 @@ export class AuthService {
      return this.jwtHelper.decodeToken(token);
   }
 
-  registrationUser(user) {
-     return this.http.post<any>(this.registerUrl, user);
+  registrationUser(user: User): Observable<any> {
+     return this.http.post<any>(this.registerUrl, user)
+       .pipe(map(data =>  data ));
   }
 
   loginUser(user: User): Observable<any> {
-    return this.http.post<any>(this.loginUrl, user).pipe(map(data => {
+    return this.http.post(this.loginUrl, user)
+      .pipe(map(data => {
       return {
         token: data['token']
       };
     }));
   }
 
-  logIn() {
-    return !!localStorage.getItem('token');
-  }
-
   logOut() {
-     localStorage.removeItem('token');
-    this.router.navigate(['/login']);
+      localStorage.removeItem('token');
+      this.router.navigate(['/login']);
   }
 
 }

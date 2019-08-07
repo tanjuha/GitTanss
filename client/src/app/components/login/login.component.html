@@ -3,7 +3,7 @@
     <div class="col-sm-6 col-md-4 col-lg-4">
       <div class="form-container">
         <div class="auth-title">
-          <img src="{{logoUrl}}" alt="logo" title="GitTans">
+          <img src="{{logoUrl}}" alt="logo" title="GitTanss">
           <h2>
             Login
           </h2>
@@ -16,17 +16,16 @@
               (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="username">
-              Username
+              Email or username
             </label>
-            <input type="text" class="form-control" id="username" aria-describedby="emailHelp"
-                   placeholder="Enter username" formControlName="usernameOrEmail">
+            <input id="username" type="text" class="form-control" aria-describedby="emailHelp"
+                   placeholder="Email or username" formControlName="usernameOrEmail">
             <span class="form-control-error"
                   *ngIf="formLogin.get('usernameOrEmail').invalid && formLogin.get('usernameOrEmail').touched">
-        <span
-          *ngIf="formLogin.get('usernameOrEmail')['errors']['required']">
-          Please enter username
-        </span>
-      </span>
+              <span *ngIf="formLogin.get('usernameOrEmail')['errors']['required']">
+                Please enter email or username
+              </span>
+            </span>
           </div>
           <div class="form-group">
             <label for="password">
@@ -35,11 +34,10 @@
             <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
             <span class="form-control-error"
                   *ngIf="formLogin.get('password').invalid && formLogin.get('password').touched">
-        <span
-          *ngIf="formLogin.get('password')['errors']['required']">
-          Please enter password
-        </span>
-      </span>
+              <span *ngIf="formLogin.get('password')['errors']['required']">
+                Please enter password
+              </span>
+            </span>
           </div>
           <div>
             <small id="help" class="form-text text-muted">
@@ -50,7 +48,8 @@
             </small>
           </div>
           <br>
-          <button type="submit" class="btn btn-primary w-100" [disabled]="formLogin.invalid">
+          <button type="submit" class="btn btn-primary w-100"
+                  [disabled]="formLogin.invalid">
             Login
           </button>
         </form>
